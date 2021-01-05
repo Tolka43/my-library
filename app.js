@@ -1,15 +1,20 @@
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
 const router = express.Router();
 
 // CONFIG
-const port = 2345;
+const port = 4444;
 
 // DATABASE
 const data = [
-  { name: 'Joga', age: 3 },
-  { name: 'Eryk', age: 13 },
+  {
+    title: 'Lśnienie',
+    author: 'Stephen King',
+    species: 'horror',
+    img: 'lsnienie.jpg',
+  },
 ];
 
 // ROUTER
@@ -18,13 +23,9 @@ router
     res.status(200).send(data);
   })
   .post('/', (req, res) => {
-    const dog = req.body;
-    if (dog.name && dog.age) {
-      data.push(req.body);
-      res.sendStatus(200);
-    } else {
-      res.sendStatus(400);
-    }
+    const book = req.body;
+    data.push(book);
+    res.sendStatus(200);
   })
   .delete('/:id', (req, res) => {
     data.splice(Number(req.params.id), 1);
@@ -33,7 +34,8 @@ router
 
 // APP
 app
-  .use(express.static('./front'))
   .use(express.json())
-  .use('/api/dogs', router)
+  .use(cors())
+  .use(express.static('./front/build'))
+  .use('/api/books', router)
   .listen(port, () => console.log(`App listening on http://localhost:${port}`));
