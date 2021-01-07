@@ -1,9 +1,13 @@
-import Form from './Form'
+// import Cards from './Cards';
+import Form from './Form';
 
 function App() {
   return (
     <div className="App">
-      < Form />
+      <Form />
+      <div>
+        {/* <Cards /> */}
+      </div>
     </div>
   );
 }

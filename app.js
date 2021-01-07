@@ -12,7 +12,7 @@ const data = [
   {
     title: 'Lśnienie',
     author: 'Stephen King',
-    species: 'horror',
+    genre: 'horror',
     img: 'lsnienie.jpg',
   },
 ];
