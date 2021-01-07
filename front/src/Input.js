@@ -1,6 +1,4 @@
-
 const Input = ({ title, onInputChange }) => {
-
   return (
     <div className="input-group mb-3">
       <span className="input-group-text">{title}</span>
