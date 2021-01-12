@@ -30,7 +30,11 @@ router
   .delete('/:id', (req, res) => {
     data.splice(Number(req.params.id), 1);
     res.status(200).send(data);
-  });
+  })
+  .get('/harry/:par/:asd', (req, res) => {
+    console.log(req.params)
+    res.status(200).send(data);
+  })
 
 // APP
 app

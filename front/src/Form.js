@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import Button from './Button';
 import Input from './Input';
-import { post } from './helpers';
+import { postBook, getBooks } from './helpers';
 
-const Form = ({ get }) => {
+const Form = ({ setBooks }) => {
   const [title, setTitle] = useState();
   const [author, setAuthor] = useState();
   const [genre, setGenre] = useState();
@@ -17,9 +17,14 @@ const Form = ({ get }) => {
       <Input title="data wydania" onInputChange={setDate} />
       <Button
         title="dodaj"
-        onButtonClick={() => post({ title, author, genre, date })}
+        onButtonClick={() => postBook({ title, author, genre, date })}
       />
-      <Button title="pobierz książki" onButtonClick={get} />
+      <Button
+        title="pobierz książki"
+        onButtonClick={() => {
+          getBooks().then(books => setBooks(books));
+        }}
+      />
     </div>
   );
 };

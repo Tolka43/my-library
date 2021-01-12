@@ -5,14 +5,9 @@ import { useState } from 'react';
 const App = () => {
   const [books, setBooks] = useState();
 
-  const get = () => {
-    fetch('http://localhost:4444/api/books')
-      .then((res) => res.json())
-      .then((res) => setBooks(res));
-  };
   return (
     <div className="App">
-      <Form get={get} />
+      <Form setBooks={setBooks} />
       <div className="container-sm">
         <Cards books={books} />
       </div>

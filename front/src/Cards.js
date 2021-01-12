@@ -1,4 +1,5 @@
 import Button from './Button';
+import { deleteBook } from './helpers';
 
 const Cards = ({ books }) => (
   <div className="row">
@@ -9,7 +10,13 @@ const Cards = ({ books }) => (
           <p className="card-text">autor: {book.author}</p>
           <p className="card-text">gatunek: {book.genre}</p>
           <p className="card-text">data wydania: {book.date}</p>
-          <Button title="usuń" />
+          <Button
+            title="usuń"
+            onButtonClick={() => {
+              deleteBook(i);
+            }}
+          />
+          <Button title="edytuj" onButtonClick={() => {}} />
         </div>
       </div>
     ))}
