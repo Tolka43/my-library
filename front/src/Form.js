@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
-import Input from './Input';
+import { LargeInput } from './Inputs';
 import { postBook, getBooks } from './helpers';
 
 const Form = ({ setBooks }) => {
@@ -11,10 +11,10 @@ const Form = ({ setBooks }) => {
 
   return (
     <div>
-      <Input title="tytuł" onInputChange={setTitle} />
-      <Input title="autor" onInputChange={setAuthor} />
-      <Input title="gatunek literacki" onInputChange={setGenre} />
-      <Input title="data wydania" onInputChange={setDate} />
+      <LargeInput title="tytuł" onInputChange={setTitle} />
+      <LargeInput title="autor" onInputChange={setAuthor} />
+      <LargeInput title="gatunek literacki" onInputChange={setGenre} />
+      <LargeInput title="data wydania" onInputChange={setDate} />
       <Button
         title="dodaj"
         onButtonClick={() => postBook({ title, author, genre, date })}

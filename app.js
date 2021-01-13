@@ -32,9 +32,15 @@ router
     res.status(200).send(data);
   })
   .get('/harry/:par/:asd', (req, res) => {
-    console.log(req.params)
+    console.log(req.params);
     res.status(200).send(data);
   })
+  // .put('/:id', (req, res) => {
+  //   const i = Number(req.params.id);
+  //   const genreText = req.body;
+  //   data[i].genre = genreText;
+  //   res.sendStatus(200);
+  // });
 
 // APP
 app

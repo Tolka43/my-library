@@ -15,3 +15,11 @@ export const deleteBook = id => {
     method: 'DELETE',
   });
 };
+
+// export const putGenre = (body, id) => {
+//   fetch(`${config.url}/${id}`, {
+//     headers: { 'Content-Type': 'text/html' },
+//     method: 'PUT',
+//     body: body,
+//   })
+// }
