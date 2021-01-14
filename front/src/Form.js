@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
-import { LargeInput } from './Inputs';
+import  LargeInput  from './Inputs/LargeInput';
 import { postBook, getBooks } from './helpers';
 
 const Form = ({ setBooks }) => {

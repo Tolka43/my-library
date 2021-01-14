@@ -1,8 +1,8 @@
 import './Card.css';
 import Button from '../Button';
-import { deleteBook, getBooks } from '../helpers';
+import { deleteBook } from '../helpers';
 import { useState } from 'react';
-import { SmallInput } from '../Inputs';
+import  SmallInput  from '../Inputs/SmallInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { putGenre } from '../helpers';
@@ -13,7 +13,8 @@ const Card = ({ book, id }) => {
   const [genre, setGenre] = useState();
 
   return (
-    <div className="card">
+    <div className="card m-3">
+      <img src={config.url + book.img} className="card-img-top" alt="..." />
       <div className="card-body">
         <div className="d-flex justify-content-between">
           <h5 className="card-title">{book.title}</h5>
@@ -30,7 +31,6 @@ const Card = ({ book, id }) => {
           <p className="card-text">gatunek: {book.genre}</p>
         )}
         <p className="card-text">data wydania: {book.date}</p>
-        <img src={config.url + book.img}/>
         <Button
           title="usuń"
           onButtonClick={() => {
