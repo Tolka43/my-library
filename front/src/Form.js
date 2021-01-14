@@ -22,7 +22,7 @@ const Form = ({ setBooks }) => {
       <Button
         title="pobierz książki"
         onButtonClick={() => {
-          getBooks().then(books => setBooks(books));
+          getBooks().then(data => setBooks(data.books));
         }}
       />
     </div>

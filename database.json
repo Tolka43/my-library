@@ -1,0 +1,25 @@
+{
+  "books": [
+    {
+      "title": "Lśnienie",
+      "author": "Stephen King",
+      "genre": "horror",
+      "img": "/lsnienie.jpg",
+      "date": 1997
+    },
+    {
+      "title": "Harry",
+      "author": "jk rowling",
+      "genre": "fantastyka",
+      "img": "/Harry.jpg",
+      "date": 1999
+    },
+    {
+      "title": "Hobbit",
+      "author": "tolkien",
+      "genre": "fantastyka",
+      "img": "/hobbit.jpg",
+      "date": 1960
+    }
+  ]
+}

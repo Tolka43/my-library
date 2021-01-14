@@ -1,11 +1,12 @@
-import './Card.css'
+import './Card.css';
 import Button from '../Button';
-import { deleteBook } from '../helpers';
+import { deleteBook, getBooks } from '../helpers';
 import { useState } from 'react';
 import { SmallInput } from '../Inputs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
-// import { putGenre } from './helpers';
+import { putGenre } from '../helpers';
+import config from '../config';
 
 const Card = ({ book, id }) => {
   const [editMode, setEditMode] = useState(false);
@@ -19,14 +20,7 @@ const Card = ({ book, id }) => {
           <FontAwesomeIcon
             icon={faPen}
             className="pen-icon"
-            onClick={() => {
-              if (editMode) {
-                setEditMode(false);
-                // putGenre(genre, id);
-              } else {
-                setEditMode(true);
-              }
-            }}
+            onClick={() => setEditMode(!editMode)}
           />
         </div>
         <p className="card-text">autor: {book.author}</p>
@@ -36,12 +30,21 @@ const Card = ({ book, id }) => {
           <p className="card-text">gatunek: {book.genre}</p>
         )}
         <p className="card-text">data wydania: {book.date}</p>
+        <img src={config.url + book.img}/>
         <Button
           title="usuń"
           onButtonClick={() => {
             deleteBook(id);
           }}
         />
+        {editMode ? (
+          <Button
+            title="zapisz"
+            onButtonClick={() => {
+              putGenre(genre, id).then(() => setEditMode(false));
+            }}
+          />
+        ) : null}
       </div>
     </div>
   );
