@@ -1,7 +1,11 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-img {
-    height: 100%;
-    object-fit: cover;
+body {
+  background: linear-gradient(to top, #bdbdbd, #ffffff);
+  /* background: linear-gradient(0.25turn, #b0b1b4, #ffffff, #b0b1b4); */
 }
 
+img {
+  height: 100%;
+  object-fit: cover;
+}

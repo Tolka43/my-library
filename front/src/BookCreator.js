@@ -16,9 +16,10 @@ function BookCreator() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="secondary" className="m-3" onClick={handleShow}>
         Dodaj książkę
       </Button>
+
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

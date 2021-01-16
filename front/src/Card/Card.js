@@ -14,13 +14,13 @@ const Card = ({ book, id }) => {
   const [author, setAuthor] = useState();
 
   return (
-    <div class="card mb-3 ml-2">
-      <div class="row g-0">
-        <div class="col-md-4">
+    <div className="card mb-3 ml-2">
+      <div className="row g-0">
+        <div className="col-md-4">
           <img src={config.url + book.img} className="card-img-top" alt="..." />
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
+        <div className="col-md-8">
+          <div className="card-body">
             <div className="d-flex justify-content-between">
               <h5 className="card-title">{book.title}</h5>
               <FontAwesomeIcon
@@ -58,9 +58,7 @@ const Card = ({ book, id }) => {
               <Button
                 title="zapisz"
                 onButtonClick={() => {
-                  put({ author, genre }, id).then(() =>
-                    setEditMode(false)
-                  );
+                  put({ author, genre }, id).then(() => setEditMode(false));
                 }}
               />
             ) : null}
@@ -70,60 +68,5 @@ const Card = ({ book, id }) => {
     </div>
   );
 };
-{
-  /* <div className="card m-3">
-      <img src={config.url + book.img} className="card-img-top" alt="..." />
-      <div className="card-body">
-        <div className="d-flex justify-content-between">
-          <h5 className="card-title">{book.title}</h5>
-          <FontAwesomeIcon
-            icon={faPen}
-            className="pen-icon"
-            onClick={() => setEditMode(!editMode)}
-          />
-        </div>
-
-        {editMode ? (
-          <>
-            <SmallInput
-              title="autor:"
-              onInputChange={setAuthor}
-              inputValue={book.author}
-            />
-            <SmallInput
-              title="gatunek:"
-              onInputChange={setGenre}
-              inputValue={book.genre}
-            />
-            <SmallInput
-              title="data wydania:"
-              onInputChange={setDate}
-              inputValue={book.date}
-            />
-          </>
-        ) : (
-          <>
-            <p className="card-text">autor: {book.author}</p>
-            <p className="card-text">gatunek: {book.genre}</p>
-            <p className="card-text">data wydania: {book.date}</p>
-          </>
-        )}
-        <Button
-          title="usuń"
-          onButtonClick={() => {
-            deleteBook(id);
-          }}
-        />
-        {editMode ? (
-          <Button
-            title="zapisz"
-            onButtonClick={() => {
-              put({ author, genre, date }, id).then(() => setEditMode(false));
-            }}
-          />
-        ) : null}
-      </div>
-    </div> */
-}
 
 export default Card;

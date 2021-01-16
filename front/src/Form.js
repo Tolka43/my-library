@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Button from './Button';
+import { Button } from 'react-bootstrap';
 import { getBooks } from './helpers';
 import BookCreator from './BookCreator';
 
@@ -13,11 +13,14 @@ const Form = ({ setBooks }) => {
       <BookCreator />
 
       <Button
+        variant="outline-dark"
         title="odśwież książki"
-        onButtonClick={() => {
+        onClick={() => {
           getBooks().then(data => setBooks(data.books));
         }}
-      />
+      >
+        odśwież książki
+      </Button>
     </div>
   );
 };
