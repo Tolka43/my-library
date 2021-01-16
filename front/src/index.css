@@ -1,6 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 body {
+  height: 100vh;
   background: linear-gradient(to top, #bdbdbd, #ffffff);
   /* background: linear-gradient(0.25turn, #b0b1b4, #ffffff, #b0b1b4); */
 }

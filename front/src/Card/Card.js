@@ -49,6 +49,7 @@ const Card = ({ book, id }) => {
               </>
             )}
             <Button
+              buttonStyle="btn-secondary"
               title="usuń"
               onButtonClick={() => {
                 deleteBook(id);
@@ -57,6 +58,7 @@ const Card = ({ book, id }) => {
             {editMode ? (
               <Button
                 title="zapisz"
+                buttonStyle="btn-outline-info"
                 onButtonClick={() => {
                   put({ author, genre }, id).then(() => setEditMode(false));
                 }}

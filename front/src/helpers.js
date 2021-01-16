@@ -1,10 +1,10 @@
 import config from './config';
 
-const booksApi = config.url + '/books'
+const booksApi = config.url + '/books';
 
 export const getBooks = () => fetch(booksApi).then(res => res.json());
 
-export const postBook = body => 
+export const postBook = body =>
   fetch(booksApi, {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',

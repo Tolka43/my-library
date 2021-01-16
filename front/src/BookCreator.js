@@ -1,4 +1,5 @@
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
+import Button from './Button';
 import { useState } from 'react';
 import LargeInput from './Inputs/LargeInput';
 import { postBook } from './helpers';
@@ -16,10 +17,11 @@ function BookCreator() {
 
   return (
     <>
-      <Button variant="secondary" className="m-3" onClick={handleShow}>
-        Dodaj książkę
-      </Button>
-
+      <Button
+        title="dodaj książkę"
+        buttonStyle="btn-secondary m-3"
+        onButtonClick={handleShow}
+      />
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -30,17 +32,18 @@ function BookCreator() {
         <LargeInput title="gatunek literacki" onInputChange={setGenre} />
         <LargeInput title="data wydania" onInputChange={setDate} />
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            zamknij
-          </Button>
           <Button
-            variant="primary"
-            onClick={() =>
+            title="zamknij"
+            buttonStyle="btn-outline-dark"
+            onButtonClick={handleClose}
+          />
+          <Button
+            title="zapisz"
+            buttonStyle="btn-info"
+            onButtonClick={() =>
               postBook({ title, author, genre, date }).then(handleClose)
             }
-          >
-            dodaj
-          </Button>
+          />
         </Modal.Footer>
       </Modal>
     </>

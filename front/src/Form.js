@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Button } from 'react-bootstrap';
+import Button from './Button';
 import { getBooks } from './helpers';
 import BookCreator from './BookCreator';
 
@@ -13,9 +13,9 @@ const Form = ({ setBooks }) => {
       <BookCreator />
 
       <Button
-        variant="outline-dark"
+        buttonStyle="btn-outline-info m-3"
         title="odśwież książki"
-        onClick={() => {
+        onButtonClick={() => {
           getBooks().then(data => setBooks(data.books));
         }}
       >

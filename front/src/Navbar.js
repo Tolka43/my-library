@@ -10,7 +10,7 @@ const AppNavbar = () => (
         <Nav.Link href="#settings">Ustawienia</Nav.Link>
       </Nav>
       <Nav>
-        <Nav.Link href="#deets">zaloguj się</Nav.Link>
+        <Nav.Link href="#login">zaloguj się</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

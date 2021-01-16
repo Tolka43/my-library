@@ -1,7 +1,7 @@
-const Button = ({ title, onButtonClick }) => (
+const Button = ({ title, onButtonClick, buttonStyle }) => (
   <button
     type="button"
-    className="btn btn-secondary m-1"
+    className={`btn ${buttonStyle} m-1`}
     onClick={() => onButtonClick()}
   >
     {title}
