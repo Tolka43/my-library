@@ -18,9 +18,9 @@ export const deleteBook = id => {
   });
 };
 
-export const putGenre = (body, id) =>
+export const put = (body, id) =>
   fetch(`${booksApi}/${id}`, {
-    headers: { 'Content-Type': 'text/plain' },
+    headers: { 'Content-Type': 'application/json' },
     method: 'PUT',
-    body: body,
+    body: JSON.stringify(body),
   });

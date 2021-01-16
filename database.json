@@ -9,14 +9,14 @@
     },
     {
       "title": "Harry",
-      "author": "jk rowling",
+      "author": "J.K. Rowling",
       "genre": "fantastyka",
       "img": "/Harry.jpg",
       "date": 1999
     },
     {
       "title": "Hobbit",
-      "author": "tolkien",
+      "author": "Tolkien",
       "genre": "fantastyka",
       "img": "/hobbit.jpg",
       "date": 1960

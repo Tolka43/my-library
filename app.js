@@ -36,9 +36,14 @@ booksRouter
   })
   .put('/:id', (req, res) => {
     const i = Number(req.params.id);
-    const genreText = req.body;
-    console.log(i, genreText);
-    data.books[i].genre = genreText;
+
+    const author = req.body.author;
+    const genre = req.body.genre;
+    const date = req.body.date;
+
+    data.books[i].author = author;
+    data.books[i].genre = genre;
+    data.books[i].date = date;
     res.sendStatus(200);
   });
 

@@ -2,15 +2,17 @@ import './Card.css';
 import Button from '../Button';
 import { deleteBook } from '../helpers';
 import { useState } from 'react';
-import  SmallInput  from '../Inputs/SmallInput';
+import SmallInput from '../Inputs/SmallInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
-import { putGenre } from '../helpers';
+import { put } from '../helpers';
 import config from '../config';
 
 const Card = ({ book, id }) => {
   const [editMode, setEditMode] = useState(false);
   const [genre, setGenre] = useState();
+  const [author, setAuthor] = useState();
+  const [date, setDate] = useState();
 
   return (
     <div className="card m-3">
@@ -24,13 +26,32 @@ const Card = ({ book, id }) => {
             onClick={() => setEditMode(!editMode)}
           />
         </div>
-        <p className="card-text">autor: {book.author}</p>
+
         {editMode ? (
-          <SmallInput onInputChange={setGenre} />
+          <>
+            <SmallInput
+              title="autor:"
+              onInputChange={setAuthor}
+              inputValue={book.author}
+            />
+            <SmallInput
+              title="gatunek:"
+              onInputChange={setGenre}
+              inputValue={book.genre}
+            />
+            <SmallInput
+              title="data wydania:"
+              onInputChange={setDate}
+              inputValue={book.date}
+            />
+          </>
         ) : (
-          <p className="card-text">gatunek: {book.genre}</p>
+          <>
+            <p className="card-text">autor: {book.author}</p>
+            <p className="card-text">gatunek: {book.genre}</p>
+            <p className="card-text">data wydania: {book.date}</p>
+          </>
         )}
-        <p className="card-text">data wydania: {book.date}</p>
         <Button
           title="usuń"
           onButtonClick={() => {
@@ -41,7 +62,7 @@ const Card = ({ book, id }) => {
           <Button
             title="zapisz"
             onButtonClick={() => {
-              putGenre(genre, id).then(() => setEditMode(false));
+              put({ author, genre, date }, id).then(() => setEditMode(false));
             }}
           />
         ) : null}
