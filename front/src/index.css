@@ -1,11 +1,17 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200&display=swap');
+
+
 body {
   background: linear-gradient(to top, #bdbdbd, #ffffff);
-  /* background: linear-gradient(0.25turn, #b0b1b4, #ffffff, #b0b1b4); */
 }
 
 img {
   height: 100%;
   object-fit: cover;
+}
+
+p, span, .form-control {
+  font-family: 'Libre Franklin', sans-serif;
 }
