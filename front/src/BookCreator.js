@@ -1,8 +1,8 @@
 import { Modal } from 'react-bootstrap';
-import Button from './Button';
 import { useState } from 'react';
 import LargeInput from './Inputs/LargeInput';
 import { postBook } from './helpers';
+import Button from './Button';
 
 function BookCreator() {
   const [title, setTitle] = useState();
@@ -33,7 +33,7 @@ function BookCreator() {
         <LargeInput title="data wydania" onInputChange={setDate} />
         <Modal.Footer>
           <Button
-            title="zamknij"
+            title="zapisz"
             buttonStyle="btn-outline-dark"
             onButtonClick={handleClose}
           />
@@ -43,7 +43,9 @@ function BookCreator() {
             onButtonClick={() =>
               postBook({ title, author, genre, date }).then(handleClose)
             }
-          />
+          >
+            dodaj
+          </Button>
         </Modal.Footer>
       </Modal>
     </>

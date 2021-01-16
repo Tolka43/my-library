@@ -1,16 +1,18 @@
+import './Navbar.css'
 import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 const AppNavbar = () => (
   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-    <Navbar.Brand href="#home">Biblioteka</Navbar.Brand>
+    <Link className="home-link m-2" to='/'>Biblioteka</Link>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link href="#favorites">Ulubione</Nav.Link>
-        <Nav.Link href="#settings">Ustawienia</Nav.Link>
+        <Link className="link m-2" to="/favorites">Ulubione</Link>
+        <Link className="link m-2" to="/settings">Ustawienia</Link>
       </Nav>
       <Nav>
-        <Nav.Link href="#login">zaloguj się</Nav.Link>
+        <Link className="link" to="/login">zaloguj się</Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

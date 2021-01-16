@@ -1,12 +1,12 @@
 const LargeInput = ({ title, onInputChange }) => (
-    <div className="input-group mb-3">
-      <span className="input-group-text">{title}</span>
-      <input
-        type="text"
-        className="form-control"
-        onChange={event => onInputChange(event.target.value)}
-      />
-    </div>
-  );
+  <div className="input-group mb-3">
+    <span className="input-group-text">{title}</span>
+    <input
+      type="text"
+      className="form-control"
+      onChange={event => onInputChange(event.target.value)}
+    />
+  </div>
+);
 
-  export default LargeInput
+export default LargeInput;
