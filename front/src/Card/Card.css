@@ -4,5 +4,9 @@
 }
 
 .card {
-    max-width: 250px;
+    max-width: 540px;
+}
+
+.row {
+    height: 100%;
 }

@@ -39,16 +39,14 @@ booksRouter
 
     const author = req.body.author;
     const genre = req.body.genre;
-    const date = req.body.date;
 
     data.books[i].author = author;
     data.books[i].genre = genre;
-    data.books[i].date = date;
     res.sendStatus(200);
   });
 
 router.get('*', (req, res) => {
-  res.sendFile(path.resolve(`.${req.url}`));
+  res.sendFile(path.resolve(`./images/${req.url}`));
 });
 
 // APP

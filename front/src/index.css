@@ -1,6 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 img {
-    max-height: 200px;
+    height: 100%;
     object-fit: cover;
 }
+

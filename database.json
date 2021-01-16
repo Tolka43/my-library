@@ -4,22 +4,37 @@
       "title": "Lśnienie",
       "author": "Stephen King",
       "genre": "horror",
-      "img": "/lsnienie.jpg",
-      "date": 1978
+      "img": "/lsnienie.jpg"
     },
     {
       "title": "Harry Potter i Kamień Filozoficzny",
       "author": "J.K. Rowling",
       "genre": "literatura młodzieżowa",
-      "img": "/Harry.jpg",
-      "date": 1997
+      "img": "/Harry.jpg"
     },
     {
       "title": "Hobbit",
       "author": "J.R.R. Tolkien",
       "genre": "fantastyka",
-      "img": "/hobbit.jpg",
-      "date": 1961
+      "img": "/hobbit.jpg"
+    },
+    {
+      "title": "Kamienie na szaniec",
+      "author": "Aleksander Kamiński",
+      "genre": "powieść historyczna",
+      "img": "/kamienie-na-szaniec.jpg"
+    },
+    {
+      "title": "Chłopcy z placu broni",
+      "author": "Ferenc Molnar",
+      "genre": "powieść, literatura młodzieżowa",
+      "img": "/chlopcy-z-placu-broni.jpg"
+    },
+    {
+      "title": "Ostatnie życzenie",
+      "author": "Andrzej Sapkowski",
+      "genre": "fantastyka",
+      "img": "/wiedzmin.jpg"
     }
   ]
 }
