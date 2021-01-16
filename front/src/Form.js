@@ -1,26 +1,19 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import Button from './Button';
-import  LargeInput  from './Inputs/LargeInput';
-import { postBook, getBooks } from './helpers';
+import { getBooks } from './helpers';
+import BookCreator from './BookCreator';
 
 const Form = ({ setBooks }) => {
-  const [title, setTitle] = useState();
-  const [author, setAuthor] = useState();
-  const [genre, setGenre] = useState();
-  const [date, setDate] = useState();
+  useEffect(() => {
+    getBooks().then(data => setBooks(data.books));
+  }, [setBooks]);
 
   return (
     <div>
-      <LargeInput title="tytuł" onInputChange={setTitle} />
-      <LargeInput title="autor" onInputChange={setAuthor} />
-      <LargeInput title="gatunek literacki" onInputChange={setGenre} />
-      <LargeInput title="data wydania" onInputChange={setDate} />
+      <BookCreator />
+
       <Button
-        title="dodaj"
-        onButtonClick={() => postBook({ title, author, genre, date })}
-      />
-      <Button
-        title="pobierz książki"
+        title="odśwież książki"
         onButtonClick={() => {
           getBooks().then(data => setBooks(data.books));
         }}
