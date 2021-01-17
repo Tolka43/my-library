@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Button from './Button';
 import { getBooks } from './helpers';
 
-const RefreshButton = ({ setBooks }) => {
+const RefreshBooks = ({ setBooks }) => {
   useEffect(() => {
     getBooks().then(data => setBooks(data.books));
   }, [setBooks]);
@@ -18,4 +18,4 @@ const RefreshButton = ({ setBooks }) => {
   );
 };
 
-export default RefreshButton;
+export default RefreshBooks;

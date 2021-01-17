@@ -8,11 +8,7 @@
 }
 
 .link:hover,
-.home-link:hover {
-  color: white;
-  text-decoration: none;
-}
-
+.home-link:hover,
 .link:active,
 .home-link:active {
   color: white;

@@ -1,13 +1,13 @@
 .footer {
-    background-color: #157381;
-    padding: 0 10%;
+  background-color: #157381;
+  padding: 0 10%;
+  height: 100px;
 }
 
 .copyright {
   padding: 10px;
   font-size: small;
   border-top: 1px solid #45b8ca;
-  margin-top: auto;
   text-align: center;
   color: #3e99a7;
   margin-bottom: 0;
