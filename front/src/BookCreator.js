@@ -33,7 +33,7 @@ function BookCreator() {
         <LargeInput title="data wydania" onInputChange={setDate} />
         <Modal.Footer>
           <Button
-            title="zapisz"
+            title="zamknij"
             buttonStyle="btn-outline-dark"
             onButtonClick={handleClose}
           />
