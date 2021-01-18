@@ -10,8 +10,8 @@ import config from '../config';
 
 const Card = ({ book, id }) => {
   const [editMode, setEditMode] = useState(false);
-  const [genre, setGenre] = useState();
-  const [author, setAuthor] = useState();
+  const [genre, setGenre] = useState(book.genre);
+  const [author, setAuthor] = useState(book.author);
 
   return (
     <div className="card mb-3 ml-2">
