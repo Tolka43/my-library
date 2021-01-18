@@ -5,6 +5,7 @@
 body {
   min-height: 100vh;
   background: linear-gradient(to top, #bdbdbd, #ffffff);
+  font-family: 'Libre Franklin', sans-serif;
 }
 
 .siteBody {
@@ -14,11 +15,4 @@ body {
 img {
   height: 100%;
   object-fit: cover;
-}
-
-p,
-span,
-.form-control,
-#footer {
-  font-family: 'Libre Franklin', sans-serif;
 }

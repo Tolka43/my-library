@@ -1,6 +1,6 @@
 import config from './config';
 
-const booksApi = config.url + '/books';
+const booksApi = config.apiUrl + '/books';
 
 export const getBooks = () => fetch(booksApi).then(res => res.json());
 
@@ -11,11 +11,10 @@ export const postBook = body =>
     body: JSON.stringify(body),
   });
 
-export const deleteBook = id => {
+export const deleteBook = id => 
   fetch(`${booksApi}/${id}`, {
     method: 'DELETE',
   });
-};
 
 export const put = (body, id) =>
   fetch(`${booksApi}/${id}`, {
