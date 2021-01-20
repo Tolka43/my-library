@@ -16,6 +16,11 @@ const json = fs.readFileSync(path.resolve('./database.json'), {
 });
 const data = JSON.parse(json);
 
+const saveData = () => {
+  const stringifiedData = JSON.stringify(data);
+  fs.writeFile('database.json', stringifiedData, () => console.log('zapisano'));
+};
+
 // ROUTER
 booksRouter
   .get('/', (req, res) => {
@@ -24,6 +29,7 @@ booksRouter
   .post('/', (req, res) => {
     const book = req.body;
     data.books.push(book);
+    saveData();
     res.sendStatus(200);
   })
   .delete('/:id', (req, res) => {
@@ -42,6 +48,9 @@ booksRouter
 
     data.books[i].author = author;
     data.books[i].genre = genre;
+
+    saveData();
+
     res.sendStatus(200);
   });
 

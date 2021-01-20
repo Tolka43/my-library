@@ -1,23 +1,31 @@
 import './Card.css';
 import Button from '../Button';
 import { deleteBook } from '../helpers';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import SmallInput from '../Inputs/SmallInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { put } from '../helpers';
 import config from '../config';
+import Select from '../Select';
+import { BooksContext } from '../App';
 
 const Card = ({ book, id }) => {
   const [editMode, setEditMode] = useState(false);
   const [genre, setGenre] = useState(book.genre);
   const [author, setAuthor] = useState(book.author);
 
+  const { setBooks, books } = useContext(BooksContext);
+
   return (
     <div className="card mb-3 ml-2">
       <div className="row g-0">
         <div className="col-md-4">
-          <img src={config.apiUrl + book.img} className="card-img-top" alt="..." />
+          <img
+            src={config.apiUrl + book.img}
+            className="card-img-top"
+            alt="..."
+          />
         </div>
         <div className="col-md-8">
           <div className="card-body">
@@ -36,11 +44,7 @@ const Card = ({ book, id }) => {
                   onInputChange={setAuthor}
                   inputValue={book.author}
                 />
-                <SmallInput
-                  title="gatunek:"
-                  onInputChange={setGenre}
-                  inputValue={book.genre}
-                />
+                <Select onInputChange={setGenre} defaultOption={book.genre} />
               </>
             ) : (
               <>
@@ -52,7 +56,12 @@ const Card = ({ book, id }) => {
               buttonStyle="btn-secondary"
               title="usuń"
               onButtonClick={() => {
-                deleteBook(id);
+                deleteBook(id).then(() => {
+                  const reduceBooks = books.filter((book, i) =>
+                    i !== id
+                  );
+                  setBooks(reduceBooks);
+                })
               }}
             />
             {editMode ? (
@@ -60,7 +69,13 @@ const Card = ({ book, id }) => {
                 title="zapisz"
                 buttonStyle="btn-outline-info"
                 onButtonClick={() => {
-                  put({ author, genre }, id).then(() => setEditMode(false));
+                  put({ author, genre }, id).then(() => {
+                    setEditMode(false);
+                    const editedBooks = books.map((book, i) =>
+                      i === id ? { ...book, author, genre } : book
+                    );
+                    setBooks(editedBooks);
+                  });
                 }}
               />
             ) : null}

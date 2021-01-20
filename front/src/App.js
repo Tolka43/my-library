@@ -1,40 +1,42 @@
 import Cards from './Cards';
-import RefreshBooks from './RefreshButton';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import AppNavbar from './Navbar/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import BookCreator from './BookCreator';
 import Footer from './Footer/Footer';
 
+export const BooksContext = createContext();
+
 const App = () => {
   const [books, setBooks] = useState();
 
   return (
-    <Router>
-      <AppNavbar />
+    <BooksContext.Provider value={{ books, setBooks }}>
+      <Router>
+        <AppNavbar />
 
-      <Switch>
-        <Route path="/favorites">
-          <div className="siteBody"></div>
-        </Route>
+        <Switch>
+          <Route path="/favorites">
+            <div className="siteBody"></div>
+          </Route>
 
-        <Route path="/settings">
-          <div className="siteBody"></div>
-        </Route>
+          <Route path="/settings">
+            <div className="siteBody"></div>
+          </Route>
 
-        <Route path="/">
-          <div className="siteBody">
-            <BookCreator />
-            <RefreshBooks setBooks={setBooks} />
-            <div className="container-sm">
-              <Cards books={books} />
+          <Route path="/">
+            <div className="siteBody">
+              <BookCreator />
+              <div className="container-sm">
+                <Cards books={books} />
+              </div>
             </div>
-          </div>
-        </Route>
-      </Switch>
+          </Route>
+        </Switch>
 
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
+    </BooksContext.Provider>
   );
 };
 

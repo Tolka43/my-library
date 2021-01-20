@@ -36,5 +36,18 @@
       "genre": "fantastyka",
       "img": "/wiedzmin.jpg"
     }
+  ],
+  "genreOptions": [
+    "dramat",
+    "komedia",
+    "literatura młodzieżowa",
+    "powieść obyczajowa",
+    "powieść historyczna",
+    "baśń",
+    "horror",
+    "fantastyka",
+    "kryminał",
+    "nowela",
+    "dla dzieci"
   ]
 }
