@@ -1,0 +1,12 @@
+.pen-icon {
+  color: #b9c3cc;
+  cursor: pointer;
+}
+
+.card {
+  max-width: 540px;
+}
+
+.row {
+  height: 100%;
+}

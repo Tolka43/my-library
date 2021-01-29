@@ -1,0 +1,16 @@
+.home-link {
+  font-size: larger;
+  color: white;
+}
+
+.link {
+  color: rgb(211, 211, 211);
+}
+
+.link:hover,
+.home-link:hover,
+.link:active,
+.home-link:active {
+  color: white;
+  text-decoration: none;
+}

@@ -1,1 +1,18 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200&display=swap');
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to top, #bdbdbd, #ffffff);
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.siteBody {
+  min-height: calc(100vh - 160.8px);
+}
+
+img {
+  height: 100%;
+  object-fit: cover;
+}

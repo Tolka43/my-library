@@ -1,0 +1,24 @@
+.footer {
+  background-color: #157381;
+  padding: 0 10%;
+  height: 100px;
+}
+
+.copyright {
+  padding: 10px;
+  font-size: small;
+  border-top: 1px solid #45b8ca;
+  text-align: center;
+  color: #3e99a7;
+  margin-bottom: 0;
+}
+
+.icons-div {
+  padding: 10px;
+  text-align: center;
+}
+
+.icon {
+  margin: 10px;
+  color: #45b8ca;
+}
