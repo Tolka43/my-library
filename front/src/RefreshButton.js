@@ -5,7 +5,7 @@ import { getBooks } from './helpers';
 const RefreshBooks = ({ setBooks }) => {
   useEffect(() => {
     getBooks().then(data => setBooks(data.books));
-  });
+  }, [setBooks]);
 
   return (
     <Button
