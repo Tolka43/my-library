@@ -15,7 +15,7 @@ const App = () => {
     <BooksContext.Provider value={{ books, setBooks }}>
       <Router>
         <AppNavbar />
-<h1>to jest react</h1>
+
         <Switch>
           <Route path="/favorites">
             <div className="siteBody"></div>
