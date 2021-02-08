@@ -11,7 +11,7 @@ export const postBook = body =>
     body: JSON.stringify(body),
   });
 
-export const deleteBook = id => 
+export const deleteBook = id =>
   fetch(`${booksApi}/${id}`, {
     method: 'DELETE',
   });

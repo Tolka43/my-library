@@ -18,8 +18,8 @@ function BookCreator() {
   return (
     <>
       <Button
-        title="dodaj książkę"
-        buttonStyle="btn-secondary m-3"
+        title='dodaj książkę'
+        buttonStyle='btn-secondary m-3'
         onButtonClick={handleShow}
       />
 
@@ -27,19 +27,19 @@ function BookCreator() {
         <Modal.Header closeButton>
           <Modal.Title>Dodaj książkę</Modal.Title>
         </Modal.Header>
-        <LargeInput title="tytuł" onInputChange={setTitle} />
-        <LargeInput title="autor" onInputChange={setAuthor} />
-        <LargeInput title="gatunek literacki" onInputChange={setGenre} />
-        <LargeInput title="data wydania" onInputChange={setDate} />
+        <LargeInput title='tytuł' onInputChange={setTitle} />
+        <LargeInput title='autor' onInputChange={setAuthor} />
+        <LargeInput title='gatunek literacki' onInputChange={setGenre} />
+        <LargeInput title='data wydania' onInputChange={setDate} />
         <Modal.Footer>
           <Button
-            title="zamknij"
-            buttonStyle="btn-outline-dark"
+            title='zamknij'
+            buttonStyle='btn-outline-dark'
             onButtonClick={handleClose}
           />
           <Button
-            title="zapisz"
-            buttonStyle="btn-info"
+            title='zapisz'
+            buttonStyle='btn-info'
             onButtonClick={() =>
               postBook({ title, author, genre, date }).then(handleClose)
             }
