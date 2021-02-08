@@ -8,7 +8,7 @@ const booksRouter = express.Router();
 const router = express.Router();
 
 // CONFIG
-const port = 4444;
+const port = process.env.PORT || 4444;
 
 // DATABASE
 const json = fs.readFileSync(path.resolve('./database.json'), {
