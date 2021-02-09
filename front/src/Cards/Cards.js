@@ -1,9 +1,10 @@
 import { useContext } from 'react';
-import Card from './Card/Card';
-import { BooksContext } from './App';
+import Card from '../Card/Card';
+import { BooksContext } from '../App';
 import { useEffect } from 'react';
-import { getBooks } from './helpers';
-import { ViewModeContext } from './Main';
+import { getBooks } from '../helpers';
+import { ViewModeContext } from '../Main';
+import './Cards.css'
 
 const Cards = () => {
   const { books, setBooks } = useContext(BooksContext);
@@ -16,7 +17,7 @@ const Cards = () => {
   return (
     <div className='row'>
       {books?.map((book, i) => (
-        <div className={viewMode === 'tiles' ? 'col-6' : 'col-12'} key={i}>
+        <div className={`${viewMode === 'tiles' ? 'col-6' : 'col-12'} mb-3`} key={i}>
           <Card book={book} id={i} />
         </div>
       ))}

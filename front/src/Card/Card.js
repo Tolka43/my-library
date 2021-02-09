@@ -9,6 +9,7 @@ import { put } from '../helpers';
 import config from '../config';
 import Select from '../Select';
 import { BooksContext } from '../App';
+import { ViewModeContext } from '../Main';
 
 const Card = ({ book, id }) => {
   const [editMode, setEditMode] = useState(false);
@@ -16,18 +17,19 @@ const Card = ({ book, id }) => {
   const [author, setAuthor] = useState(book.author);
 
   const { setBooks, books } = useContext(BooksContext);
+  const viewMode = useContext(ViewModeContext)
 
   return (
-    <div className='card mb-3 ml-2'>
+    <div className='card ml-2'>
       <div className='row g-0'>
-        <div className='col-md-4'>
+        <div className={viewMode === 'tiles' ? 'col-md-4' : 'col-md-2'}>
           <img
             src={config.apiUrl + book.img}
             className='card-img-top'
             alt='...'
           />
         </div>
-        <div className='col-md-8'>
+        <div className={viewMode === 'tiles' ? 'col-md-8' : 'col-md-10'}>
           <div className='card-body'>
             <div className='d-flex justify-content-between'>
               <h5 className='card-title'>{book.title}</h5>

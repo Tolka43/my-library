@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 import BookCreator from './BookCreator';
-import Cards from './Cards';
+import Cards from './Cards/Cards';
 import RadioButton from './RadioButton';
 
 export const ViewModeContext = createContext();
