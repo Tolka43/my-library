@@ -1,5 +1,10 @@
 const config = {
-  apiUrl: 'http://localhost:4444/api',
+  production: {
+    apiUrl: '/api',
+  },
+  development: {
+    apiUrl: 'http://localhost:4444/api',
+  },
 };
 
-export default config;
+export default config[process.env.NODE_ENV];

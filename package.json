@@ -10,7 +10,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js"
+    "serve": "node app & npm start -C front",
+    "build": "npm i && npm i -C front && npm run build -C front",
+    "start": "node app"
   },
   "author": "",
   "license": "ISC",
