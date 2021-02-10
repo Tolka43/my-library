@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThList, faThLarge } from '@fortawesome/free-solid-svg-icons';
 
-const RadioButton = ({ setViewMode }) => {
+const ViewModeButton = ({ setViewMode }) => {
   const radios = [
     { title: <FontAwesomeIcon icon={faThLarge} />, option: 'tiles' },
     { title: <FontAwesomeIcon icon={faThList} />, option: 'list' },
@@ -23,4 +23,4 @@ const RadioButton = ({ setViewMode }) => {
   );
 };
 
-export default RadioButton;
+export default ViewModeButton;
