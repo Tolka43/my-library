@@ -1,0 +1,10 @@
+a.page-link {
+    color: #45b8ca;
+}
+
+.pagination {
+    width: 200px !important;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+}

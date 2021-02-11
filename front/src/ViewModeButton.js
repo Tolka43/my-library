@@ -1,13 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThList, faThLarge } from '@fortawesome/free-solid-svg-icons';
 
-const ViewModeButton = ({ setViewMode }) => {
+const ViewModeButton = ({ setViewMode, setPageSize }) => {
   const radios = [
     { title: <FontAwesomeIcon icon={faThLarge} />, option: 'tiles' },
     { title: <FontAwesomeIcon icon={faThList} />, option: 'list' },
   ];
 
   return (
+    <>
     <div className='btn-group mt-3' role='group' aria-label='Second group'>
       {radios.map(radio => (
         <button
@@ -20,6 +21,8 @@ const ViewModeButton = ({ setViewMode }) => {
         </button>
       ))}
     </div>
+    
+    </>
   );
 };
 
