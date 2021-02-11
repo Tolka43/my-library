@@ -24,7 +24,13 @@ const saveData = () => {
 // ROUTER
 booksRouter
   .get('/', (req, res) => {
-    res.status(200).send(data);
+    const page = Number(req.query.page)
+    const pageSize = Number(req.query.size)
+    const num = page*pageSize - pageSize
+    console.log(num)
+    const arr = data.books.slice(num, num + pageSize)
+    console.log(arr)
+    res.status(200).send({books: arr});
   })
   .post('/', (req, res) => {
     const book = req.body;

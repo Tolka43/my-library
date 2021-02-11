@@ -1,7 +1,8 @@
 import { createContext, useState } from 'react';
 import BookCreator from './BookCreator';
 import Cards from './Cards/Cards';
-import RadioButton from './RadioButton';
+import ViewModeButton from './ViewModeButton';
+import PaginationButton from './PaginationButton'
 
 export const ViewModeContext = createContext();
 
@@ -12,13 +13,14 @@ const Main = () => {
       <div className='siteBody container'>
         <div className='row'>
           <div className='col'>
-            <RadioButton setViewMode={setViewMode} />
+            <ViewModeButton setViewMode={setViewMode} />
           </div>
           <div className='col'>
             <BookCreator />
           </div>
         </div>
         <Cards />
+        <div><PaginationButton/></div>
       </div>
     </ViewModeContext.Provider>
   );
