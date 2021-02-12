@@ -6,9 +6,10 @@ import './PaginationButton.css';
 
 const PaginationButton = ({ pageSize, setPageSize }) => {
   const { setBooks } = useContext(BooksContext);
+
   const [pagesCountArr, setPagesCountArr] = useState([0]);
   const [page, setPage] = useState(1);
-  const [activeItem, setActiveItem] = useState(false);
+  const [activeItem, setActiveItem] = useState();
 
   useEffect(() => {
     getBooks(page, pageSize).then(data => setBooks(data.books));
@@ -25,13 +26,18 @@ const PaginationButton = ({ pageSize, setPageSize }) => {
   return (
     <Pagination className='col'>
       <Pagination.Prev />
-      <Pagination.Item>{1}</Pagination.Item>
+      <Pagination.Item
+        onClick={() => {
+          setPage(1);
+        }}
+      >
+        {1}
+      </Pagination.Item>
       <Pagination.Ellipsis />
-      {pagesCountArr.map((item, i) => (
+      {pagesCountArr.map((_, i) => (
         <Pagination.Item
           onClick={() => {
             setPage(i + 1);
-            setActiveItem(true);
           }}
           key={i}
         >

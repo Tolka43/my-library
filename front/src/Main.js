@@ -21,8 +21,6 @@ const Main = () => {
           <div className='col-md-1'>
             <ViewModeButton
               setViewMode={setViewMode}
-              setPageSize={setPageSize}
-              pageSize={pageSize}
             />
           </div>
           <div className='col-md-1'>

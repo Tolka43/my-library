@@ -3,8 +3,5 @@ a.page-link {
 }
 
 .pagination {
-    width: 200px !important;
-    align-content: center;
-    align-self: center;
-    align-items: center;
+    flex-grow: unset !important;
 }
