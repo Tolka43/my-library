@@ -31,30 +31,50 @@ const PaginationButton = ({ pageSize }) => {
           setPage(page === 1 ? 1 : page - 1);
         }}
       />
-      <Pagination.Item
-        onClick={() => {
-          setPage(1);
-        }}
-      >
-        {1}
-      </Pagination.Item>
-      <Pagination.Ellipsis />
-      {pagesCountArr
-        .map(item => (
-          <Pagination.Item
-            active={page - 1 === item}
-            onClick={() => {
-              setPage(item + 1);
-            }}
-            key={item}
-          >
-            {item + 1}
-          </Pagination.Item>
-        ))
-        .slice(page - 2 === -1 ? 0 : page - 2, page + 1)}
+      {page === lastPage - 1 || page === lastPage ? (
+        <Pagination.Item
+          onClick={() => {
+            setPage(1);
+          }}
+        >
+          {1}
+        </Pagination.Item>
+      ) : (
+        pagesCountArr
+          .map(item => {
+            return (
+              <Pagination.Item
+                active={page - 1 === item}
+                onClick={() => {
+                  setPage(item + 1);
+                }}
+                key={item}
+              >
+                {item + 1}
+              </Pagination.Item>
+            );
+          })
+          .slice(page - 2 === -1 ? 0 : page - 2, page + 1)
+      )}
 
-      <Pagination.Ellipsis />
+      {page === lastPage || page === lastPage - 1 ? (
+        <>
+          <Pagination.Ellipsis />
+          <Pagination.Item
+            active={page === lastPage - 1}
+            onClick={() => {
+              setPage(lastPage - 1);
+            }}
+          >
+            {lastPage - 1}
+          </Pagination.Item>
+        </>
+      ) : (
+        <Pagination.Ellipsis />
+      )}
+
       <Pagination.Item
+        active={page === lastPage}
         onClick={() => {
           setPage(lastPage);
         }}

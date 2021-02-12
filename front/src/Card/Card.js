@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { put } from '../helpers';
 import config from '../config';
-import Select from '../Select';
+import Select from '../Select/Select';
 import { BooksContext } from '../App';
 import { ViewModeContext } from '../Main';
 
