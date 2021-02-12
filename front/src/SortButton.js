@@ -1,7 +1,17 @@
 import { DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
 import { getBooks } from './helpers';
+import { BooksContext } from './App';
+import { useContext } from 'react';
 
-const SortButton = ({ title, page, pageSize }) => {
+const SortButton = ({ title, page, pageSize, setAuthor }) => {
+  const { setBooks } = useContext(BooksContext);
+
+  const authors = [
+    { stringForUrl: '', title: 'wszyscy' },
+    { stringForUrl: 'Sapkowski+Andrzej', title: 'Sapkowski Andrzej' },
+    { stringForUrl: 'Rowling+J.K.', title: 'Rowling J.K.' },
+  ];
+
   return (
     <DropdownButton
       className='mt-3'
@@ -10,15 +20,22 @@ const SortButton = ({ title, page, pageSize }) => {
       variant={'Secondary'.toLowerCase()}
       title={title}
     >
-      <Dropdown.Item eventKey='1' value='wszyscy'>
-        wszyscy
-      </Dropdown.Item>
-      <Dropdown.Item onClick={() => getBooks(page, pageSize, 'Sapkowski+Andrzej')} eventKey='2' value='Sapkowski Andrzej'>
-        Sapkowski Andrzej
-      </Dropdown.Item>
-      <Dropdown.Item eventKey='3' value='Rowling J.K.'>
-        Rowling J.K.
-      </Dropdown.Item>
+      {authors.map((authorData, i) => {
+        return (
+          <Dropdown.Item
+            key={authorData}
+            eventKey={i + 1}
+            onClick={() => {
+              setAuthor(authorData.stringForUrl);
+              getBooks(page, pageSize, authorData.stringForUrl).then(data => {
+                setBooks(data.books);
+              });
+            }}
+          >
+            {authorData.title}
+          </Dropdown.Item>
+        );
+      })}
     </DropdownButton>
   );
 };

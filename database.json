@@ -7,7 +7,61 @@
       "img": "/lsnienie.jpg"
     },
     {
+      "title": "Carrie",
+      "author": "Stephen King",
+      "genre": "horror",
+      "img": "/lsnienie.jpg"
+    },
+    {
+      "title": "Miasteczko Salem",
+      "author": "Stephen King",
+      "genre": "horror",
+      "img": "/lsnienie.jpg"
+    },
+    {
+      "title": "Cmętarz zwieżąt",
+      "author": "Stephen King",
+      "genre": "horror",
+      "img": "/lsnienie.jpg"
+    },
+    {
+      "title": "Cztery pory roku",
+      "author": "Stephen King",
+      "genre": "horror",
+      "img": "/lsnienie.jpg"
+    },
+    {
+      "title": "To",
+      "author": "Stephen King",
+      "genre": "horror",
+      "img": "/lsnienie.jpg"
+    },
+    {
       "title": "Harry Potter i Kamień Filozoficzny",
+      "author": "Rowling J.K.",
+      "genre": "literatura młodzieżowa",
+      "img": "/Harry.jpg"
+    },
+    {
+      "title": "Harry Potter i Komnata Tajemnic",
+      "author": "Rowling J.K.",
+      "genre": "literatura młodzieżowa",
+      "img": "/Harry.jpg"
+    },
+    {
+      "title": "Harry Potter i więzień Azkabanu",
+      "author": "Rowling J.K.",
+      "genre": "literatura młodzieżowa",
+      "img": "/Harry.jpg"
+    },
+    {
+      "title": "Harry Potter i Czara Ognia",
+      "author": "Rowling J.K.",
+      "genre": "literatura młodzieżowa",
+      "img": "/Harry.jpg"
+    },
+    {
+      "title": "Harry Potter i Zakon Feniksa",
       "author": "Rowling J.K.",
       "genre": "literatura młodzieżowa",
       "img": "/Harry.jpg"
@@ -31,128 +85,26 @@
       "img": "/chlopcy-z-placu-broni.jpg"
     },
     {
-      "title": "Chłopcy z placu broni",
+      "title": "Ostatnie życzenie",
       "author": "Sapkowski Andrzej",
-      "genre": "powieść, literatura młodzieżowa",
-      "img": "/chlopcy-z-placu-broni.jpg"
+      "genre": "fantastyka",
+      "img": "/wiedzmin.jpg"
     },
     {
-      "title": "Chłopcy z placu broni",
+      "title": "Miecz przeznaczenia",
       "author": "Sapkowski Andrzej",
-      "genre": "powieść, literatura młodzieżowa",
-      "img": "/chlopcy-z-placu-broni.jpg"
-    },
-    {
-      "title": "Chłopcy z placu broni",
-      "author": "Ferenc Molnar",
-      "genre": "powieść, literatura młodzieżowa",
-      "img": "/chlopcy-z-placu-broni.jpg"
-    },
-    {
-      "title": "Chłopcy z placu broni",
-      "author": "Ferenc Molnar",
-      "genre": "powieść, literatura młodzieżowa",
-      "img": "/chlopcy-z-placu-broni.jpg"
-    },
-    {
-      "title": "Chłopcy z placu broni",
-      "author": "Ferenc Molnar",
-      "genre": "powieść, literatura młodzieżowa",
-      "img": "/chlopcy-z-placu-broni.jpg"
-    },
-    {
-      "title": "Chłopcy z placu broni",
-      "author": "Ferenc Molnar",
-      "genre": "powieść, literatura młodzieżowa",
-      "img": "/chlopcy-z-placu-broni.jpg"
-    },
-    {
-      "title": "Chłopcy z placu broni",
-      "author": "Ferenc Molnar",
-      "genre": "powieść, literatura młodzieżowa",
-      "img": "/chlopcy-z-placu-broni.jpg"
-    },
-    {
-      "title": "Chłopcy z placu broni",
-      "author": "Ferenc Molnar",
-      "genre": "powieść, literatura młodzieżowa",
-      "img": "/chlopcy-z-placu-broni.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
       "genre": "fantastyka",
       "img": "/wiedzmin.jpg"
     },
     {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
+      "title": "Krew elfów",
+      "author": "Sapkowski Andrzej",
       "genre": "fantastyka",
       "img": "/wiedzmin.jpg"
     },
     {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
-      "genre": "fantastyka",
-      "img": "/wiedzmin.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
-      "genre": "fantastyka",
-      "img": "/wiedzmin.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
-      "genre": "fantastyka",
-      "img": "/wiedzmin.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
-      "genre": "fantastyka",
-      "img": "/wiedzmin.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
-      "genre": "fantastyka",
-      "img": "/wiedzmin.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
-      "genre": "fantastyka",
-      "img": "/wiedzmin.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
-      "genre": "fantastyka",
-      "img": "/wiedzmin.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
-      "genre": "fantastyka",
-      "img": "/wiedzmin.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
-      "genre": "fantastyka",
-      "img": "/wiedzmin.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
-      "genre": "fantastyka",
-      "img": "/wiedzmin.jpg"
-    },
-    {
-      "title": "Ostatnie życzenie",
-      "author": "Andrzej Sapkowski",
+      "title": "Czas pogardy",
+      "author": "Sapkowski Andrzej",
       "genre": "fantastyka",
       "img": "/wiedzmin.jpg"
     }

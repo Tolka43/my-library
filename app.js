@@ -26,11 +26,17 @@ booksRouter
   .get('/', (req, res) => {
     const page = Number(req.query.page);
     const pageSize = Number(req.query.size);
+    const author = req.query.filter.author;
     const num = page * pageSize - pageSize;
-    const arr = data.books.slice(num, num + pageSize);
-    res
-      .status(200)
-      .send({ books: arr, meta: { booksCount: data.books.length } });
+    const booksPerPage = author
+      ? data.books
+          .filter(book => author === book.author)
+          .slice(num, num + pageSize)
+      : data.books.slice(num, num + pageSize);
+    res.status(200).send({
+      books: booksPerPage,
+      meta: { booksCount: data.books.length },
+    });
   })
   .post('/', (req, res) => {
     const book = req.body;

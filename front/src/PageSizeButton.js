@@ -1,21 +1,19 @@
-const PageSizeButton = ({ setPageSize }) => (
-  <div className='btn-group mt-3' role='group' aria-label='Second group'>
-    <button
-      onClick={() => setPageSize(8)}
-      type='button'
-      className='btn btn-secondary'
-    >
-      {8}
-    </button>
-
-    <button
-      onClick={() => setPageSize(16)}
-      type='button'
-      className='btn btn-secondary'
-    >
-      {16}
-    </button>
-  </div>
-);
+const PageSizeButton = ({ setPageSize }) => {
+  const pageSizes = [4, 8, 16];
+  return (
+    <div className='btn-group mt-3' role='group' aria-label='Second group'>
+      {pageSizes.map(pageSize => (
+        <button
+          key={pageSize}
+          onClick={() => setPageSize(pageSize)}
+          type='button'
+          className='btn btn-secondary'
+        >
+          {pageSize}
+        </button>
+      ))}
+    </div>
+  );
+};
 
 export default PageSizeButton;

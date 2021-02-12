@@ -1,19 +1,14 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { Pagination } from 'react-bootstrap';
 import { getBooks } from '../helpers';
-import { BooksContext } from '../App';
 import './PaginationButton.css';
 
-const PaginationButton = ({ pageSize, page, setPage }) => {
-  const { setBooks } = useContext(BooksContext);
-
+const PaginationButton = ({ pageSize, page, setPage, author }) => {
   const [pagesCountArr, setPagesCountArr] = useState([0]);
 
   const lastPage = pagesCountArr.length;
 
-  useEffect(() => {
-    getBooks(page, pageSize).then(data => setBooks(data.books));
-  }, [page, pageSize]);
+/* button paginacji nie zmienia się w przypadku zmiany stanu authora */
 
   useEffect(
     () =>
@@ -21,7 +16,7 @@ const PaginationButton = ({ pageSize, page, setPage }) => {
         .then(data => Math.ceil(data.meta.booksCount / pageSize))
         .then(res => Array.from({ length: res }, (v, k) => k))
         .then(arr => setPagesCountArr(arr)),
-    [pageSize]
+    [pageSize, author]
   );
   return (
     <Pagination className='col'>
