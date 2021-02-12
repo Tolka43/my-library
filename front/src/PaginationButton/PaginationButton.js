@@ -9,7 +9,6 @@ const PaginationButton = ({ pageSize, setPageSize }) => {
 
   const [pagesCountArr, setPagesCountArr] = useState([0]);
   const [page, setPage] = useState(1);
-  const [activeItem, setActiveItem] = useState();
 
   useEffect(() => {
     getBooks(page, pageSize).then(data => setBooks(data.books));
@@ -25,7 +24,11 @@ const PaginationButton = ({ pageSize, setPageSize }) => {
   );
   return (
     <Pagination className='col'>
-      <Pagination.Prev />
+      <Pagination.Prev
+        onClick={() => {
+          setPage(page === 1 ? 1 : page - 1);
+        }}
+      />
       <Pagination.Item
         onClick={() => {
           setPage(1);
@@ -34,18 +37,19 @@ const PaginationButton = ({ pageSize, setPageSize }) => {
         {1}
       </Pagination.Item>
       <Pagination.Ellipsis />
-      {pagesCountArr.map((_, i) => (
-        <Pagination.Item
-          onClick={() => {
-            setPage(i + 1);
-          }}
-          key={i}
-        >
-          {i + 1}
-        </Pagination.Item>
-      ))}
-
-      {/* <Pagination.Item active>{12}</Pagination.Item> */}
+      {pagesCountArr
+        .map(item => (
+          <Pagination.Item
+            active={page - 1 === item}
+            onClick={() => {
+              setPage(item + 1);
+            }}
+            key={item}
+          >
+            {item + 1}
+          </Pagination.Item>
+        ))
+        .slice(page - 2 === -1 ? 0 : page - 2, page + 1)}
 
       <Pagination.Ellipsis />
       <Pagination.Item
@@ -55,7 +59,11 @@ const PaginationButton = ({ pageSize, setPageSize }) => {
       >
         {pagesCountArr.length}
       </Pagination.Item>
-      <Pagination.Next />
+      <Pagination.Next
+        onClick={() => {
+          setPage(page === pagesCountArr.length ? pagesCountArr.length : page + 1);
+        }}
+      />
     </Pagination>
   );
 };

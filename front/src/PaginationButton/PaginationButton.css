@@ -2,6 +2,11 @@ a.page-link {
     color: #45b8ca;
 }
 
+span.page-link {
+    background-color: #17a2b8 !important;
+    border: none !important;
+}
+
 .pagination {
     flex-grow: unset !important;
 }
