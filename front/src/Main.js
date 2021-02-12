@@ -29,7 +29,7 @@ const Main = () => {
         </div>
         <Cards />
         <div className='row justify-content-center'>
-            <PaginationButton pageSize={pageSize} setPageSize={setPageSize} />
+            <PaginationButton pageSize={pageSize} />
           </div>
       </div>
     </ViewModeContext.Provider>

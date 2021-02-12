@@ -4,11 +4,13 @@ import { getBooks } from '../helpers';
 import { BooksContext } from '../App';
 import './PaginationButton.css';
 
-const PaginationButton = ({ pageSize, setPageSize }) => {
+const PaginationButton = ({ pageSize }) => {
   const { setBooks } = useContext(BooksContext);
 
   const [pagesCountArr, setPagesCountArr] = useState([0]);
   const [page, setPage] = useState(1);
+
+  const lastPage = pagesCountArr.length;
 
   useEffect(() => {
     getBooks(page, pageSize).then(data => setBooks(data.books));
@@ -54,14 +56,14 @@ const PaginationButton = ({ pageSize, setPageSize }) => {
       <Pagination.Ellipsis />
       <Pagination.Item
         onClick={() => {
-          setPage(pagesCountArr.length);
+          setPage(lastPage);
         }}
       >
-        {pagesCountArr.length}
+        {lastPage}
       </Pagination.Item>
       <Pagination.Next
         onClick={() => {
-          setPage(page === pagesCountArr.length ? pagesCountArr.length : page + 1);
+          setPage(page === lastPage ? lastPage : page + 1);
         }}
       />
     </Pagination>
