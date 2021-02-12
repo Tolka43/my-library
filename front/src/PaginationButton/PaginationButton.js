@@ -4,11 +4,10 @@ import { getBooks } from '../helpers';
 import { BooksContext } from '../App';
 import './PaginationButton.css';
 
-const PaginationButton = ({ pageSize }) => {
+const PaginationButton = ({ pageSize, page, setPage }) => {
   const { setBooks } = useContext(BooksContext);
 
   const [pagesCountArr, setPagesCountArr] = useState([0]);
-  const [page, setPage] = useState(1);
 
   const lastPage = pagesCountArr.length;
 
