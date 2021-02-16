@@ -3,7 +3,7 @@ import { getBooks } from './helpers';
 import { BooksContext } from './App';
 import { useContext } from 'react';
 
-const SortButton = ({ title, page, pageSize, setAuthor }) => {
+const AuthorsButton = ({ title, page, pageSize, setAuthor, genre }) => {
   const { setBooks } = useContext(BooksContext);
 
   const authors = [
@@ -14,7 +14,7 @@ const SortButton = ({ title, page, pageSize, setAuthor }) => {
 
   return (
     <DropdownButton
-      className='mt-3'
+      className='mt-3 ml-2'
       as={ButtonGroup}
       id={`dropdown-variants-Secondary`}
       variant={'Secondary'.toLowerCase()}
@@ -23,11 +23,11 @@ const SortButton = ({ title, page, pageSize, setAuthor }) => {
       {authors.map((authorData, i) => {
         return (
           <Dropdown.Item
-            key={authorData}
+            key={i}
             eventKey={i + 1}
             onClick={() => {
               setAuthor(authorData.stringForUrl);
-              getBooks(page, pageSize, authorData.stringForUrl).then(data => {
+              getBooks(page, pageSize, authorData.stringForUrl, genre).then(data => {
                 setBooks(data.books);
               });
             }}
@@ -39,4 +39,4 @@ const SortButton = ({ title, page, pageSize, setAuthor }) => {
     </DropdownButton>
   );
 };
-export default SortButton;
+export default AuthorsButton;

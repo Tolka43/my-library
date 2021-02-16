@@ -4,9 +4,10 @@ import Cards from './Cards/Cards';
 import ViewModeButton from './ViewModeButton';
 import PaginationButton from './PaginationButton/PaginationButton';
 import PageSizeButton from './PageSizeButton';
-import SortButton from './SortButton';
+import AuthorsButton from './AuthorsSortButton';
 import { getBooks } from './helpers';
 import { BooksContext } from './App';
+import GenreButton from './GenreSortButton';
 
 export const ViewModeContext = createContext();
 
@@ -15,6 +16,7 @@ const Main = () => {
   const [pageSize, setPageSize] = useState(8);
   const [page, setPage] = useState(1);
   const [author, setAuthor] = useState('');
+  const [genre, setGenre] = useState('')
 
   const { setBooks } = useContext(BooksContext);
 
@@ -26,15 +28,25 @@ const Main = () => {
     <ViewModeContext.Provider value={viewMode}>
       <div className='siteBody container'>
         <div className='row'>
-          <div className='col-md-9'>
+          <div className='col-md-8'>
             <BookCreator />
           </div>
           <div className='col-md-1'>
-            <SortButton
+            <GenreButton
+              title='gatunek'
+              author={author}
+              setGenre={setGenre}
+              page={page}
+              pageSize={pageSize}
+            />
+          </div>
+          <div className='col-md-1'>
+            <AuthorsButton
               title='autor'
               page={page}
               pageSize={pageSize}
               setAuthor={setAuthor}
+              genre={genre}
             />
           </div>
           <div className='col-md-1'>
@@ -46,7 +58,12 @@ const Main = () => {
         </div>
         <Cards />
         <div className='row justify-content-center'>
-          <PaginationButton pageSize={pageSize} page={page} setPage={setPage} author={author}/>
+          <PaginationButton
+            pageSize={pageSize}
+            page={page}
+            setPage={setPage}
+            author={author}
+          />
         </div>
       </div>
     </ViewModeContext.Provider>
