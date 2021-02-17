@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import fs from 'fs';
 import path from 'path';
+import { sendMail } from './mailer.js';
 
 const app = express();
 const booksRouter = express.Router();
@@ -11,14 +12,16 @@ const router = express.Router();
 const port = process.env.PORT || 4444;
 
 // DATABASE
-const json = fs.readFileSync(path.resolve('./database.json'), {
+const json = fs.readFileSync(path.resolve('./database/books.json'), {
   encoding: 'utf8',
 });
 const data = JSON.parse(json);
 
 const saveData = () => {
   const stringifiedData = JSON.stringify(data);
-  fs.writeFile('database.json', stringifiedData, () => console.log('zapisano'));
+  fs.writeFile('./database/books.json', stringifiedData, () =>
+    console.log('zapisano')
+  );
 };
 
 // ROUTER
@@ -26,10 +29,10 @@ booksRouter
   .get('/', (req, res) => {
     const page = Number(req.query.page);
     const pageSize = Number(req.query.size);
-    const author = req.query.filter.author;
+    const author = req.query.filter?.author;
     const num = page * pageSize - pageSize;
     const filteredBooksCount = author
-      ? data.books.filter(book => author === book.author)
+      ? data.books.filter(book => author === book.author).length
       : data.books.length;
 
     const booksPerPage = author
@@ -74,9 +77,20 @@ booksRouter
     res.sendStatus(200);
   });
 
-router.get('*', (req, res) => {
-  res.sendFile(path.resolve(`./images/${req.url}`));
-});
+router
+  .get('*', (req, res) => {
+    res.sendFile(path.resolve(`./images/${req.url}`));
+  })
+  .post('/mail', (req, res) => {
+    const mail = req.body.mail;
+    sendMail(mail)
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch(() => {
+        res.sendStatus(500);
+      });
+  });
 
 // APP
 app

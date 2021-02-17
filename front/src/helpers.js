@@ -11,6 +11,13 @@ export const postBook = body =>
     body: JSON.stringify(body),
   });
 
+  export const postMail = mail =>
+  fetch(config.apiUrl + '/mail', {
+    headers: { 'Content-Type': 'application/json' },
+    method: 'POST',
+    body: JSON.stringify({mail}),
+  });
+
 export const deleteBook = id =>
   fetch(`${booksApi}/${id}`, {
     method: 'DELETE',

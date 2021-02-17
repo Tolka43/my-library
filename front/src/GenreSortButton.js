@@ -1,10 +1,10 @@
 import { DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
-import { getBooks } from './helpers';
-import { BooksContext } from './App';
-import { useContext } from 'react';
+// import { getBooks } from './helpers';
+// import { BooksContext } from './App';
+// import { useContext } from 'react';
 
 const GenreButton = ({ title, page, pageSize, author, setGenre }) => {
-  const { setBooks } = useContext(BooksContext);
+  // const { setBooks } = useContext(BooksContext);
 
   const genres = [
     { stringForUrl: '', title: 'wszystkie' },
@@ -17,7 +17,7 @@ const GenreButton = ({ title, page, pageSize, author, setGenre }) => {
       className='mt-3'
       as={ButtonGroup}
       id={`dropdown-variants-Secondary`}
-      variant={'Secondary'.toLowerCase()}
+      variant='secondary'
       title={title}
     >
       {genres.map((genreData, i) => {
