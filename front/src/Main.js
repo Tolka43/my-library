@@ -5,9 +5,10 @@ import ViewModeButton from './ViewModeButton';
 import PaginationButton from './PaginationButton/PaginationButton';
 import PageSizeButton from './PageSizeButton';
 import AuthorsButton from './AuthorsSortButton';
-import { getBooks, postMail } from './helpers';
+import { getBooks } from './helpers';
 import { BooksContext } from './App';
 import GenreButton from './GenreSortButton';
+import Mail from './Mail';
 
 export const ViewModeContext = createContext();
 
@@ -17,7 +18,6 @@ const Main = () => {
   const [page, setPage] = useState(1);
   const [author, setAuthor] = useState('');
   const [genre, setGenre] = useState('');
-  const [mail, setMail] = useState();
 
   const { setBooks } = useContext(BooksContext);
 
@@ -67,13 +67,7 @@ const Main = () => {
           />
         </div>
         <div>
-          <input onChange={event => setMail(event.target.value)}></input>
-          <button
-            onClick={() => {
-              postMail(mail).then(() => alert('wysłano maila'));
-            }}>
-            wyślij maila
-          </button>
+          <Mail />
         </div>
       </div>
     </ViewModeContext.Provider>
