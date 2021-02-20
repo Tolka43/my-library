@@ -1,5 +1,5 @@
 const PageSizeButton = ({ setPageSize }) => {
-  const pageSizes = [4, 8, 16];
+  const pageSizes = [4, 8, 16, 32];
   return (
     <div className='btn-group mt-3' role='group' aria-label='Second group'>
       {pageSizes.map(pageSize => (

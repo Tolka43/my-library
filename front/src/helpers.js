@@ -2,7 +2,10 @@ import config from './config';
 
 const booksApi = config.apiUrl + '/books';
 
-export const getBooks = (page, pageSize, author) => fetch(`${booksApi}?page=${page}&size=${pageSize}&filter[author]=${author}`).then(res => res.json());
+export const getBooks = (page, pageSize, filteredValue, filter) =>
+  fetch(
+    `${booksApi}?page=${page}&size=${pageSize}&filter[${filteredValue}]=${filter}`
+  ).then(res => res.json());
 
 export const postBook = body =>
   fetch(booksApi, {
@@ -11,11 +14,11 @@ export const postBook = body =>
     body: JSON.stringify(body),
   });
 
-  export const postMail = mail =>
+export const postMail = mail =>
   fetch(config.apiUrl + '/mail', {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
-    body: JSON.stringify({mail}),
+    body: JSON.stringify({ mail }),
   });
 
 export const deleteBook = id =>

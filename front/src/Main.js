@@ -16,14 +16,15 @@ const Main = () => {
   const [viewMode, setViewMode] = useState('tiles');
   const [pageSize, setPageSize] = useState(8);
   const [page, setPage] = useState(1);
-  const [author, setAuthor] = useState('');
+  const [filter, setFilter] = useState('');
   const [genre, setGenre] = useState('');
+  const [filteredValue, setFilteredValue] = useState('author')
 
   const { setBooks } = useContext(BooksContext);
 
   useEffect(() => {
-    getBooks(page, pageSize, author).then(data => setBooks(data.books));
-  }, [setBooks, author, page, pageSize]);
+    getBooks(page, pageSize, filteredValue, filter).then(data => setBooks(data.books));
+  }, [setBooks, filter, page, pageSize]);
 
   return (
     <ViewModeContext.Provider value={viewMode}>
@@ -35,8 +36,9 @@ const Main = () => {
           <div className='col-md-1'>
             <GenreButton
               title='gatunek'
-              author={author}
-              setGenre={setGenre}
+              filter={filter}
+              setFilter={setFilter}
+              setFilteredValue={setFilteredValue}
               page={page}
               pageSize={pageSize}
             />
@@ -46,8 +48,9 @@ const Main = () => {
               title='autor'
               page={page}
               pageSize={pageSize}
-              setAuthor={setAuthor}
+              setFilter={setFilter}
               genre={genre}
+              setFilteredValue={setFilteredValue}
             />
           </div>
           <div className='col-md-1'>
@@ -63,7 +66,7 @@ const Main = () => {
             pageSize={pageSize}
             page={page}
             setPage={setPage}
-            author={author}
+            filter={filter}
           />
         </div>
         <div>

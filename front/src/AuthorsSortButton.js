@@ -3,7 +3,7 @@ import { getBooks } from './helpers';
 import { BooksContext } from './App';
 import { useContext } from 'react';
 
-const AuthorsButton = ({ title, page, pageSize, setAuthor, genre }) => {
+const AuthorsButton = ({ title, page, pageSize, setFilter, setFilteredValue }) => {
   const { setBooks } = useContext(BooksContext);
 
   const authors = [
@@ -16,8 +16,8 @@ const AuthorsButton = ({ title, page, pageSize, setAuthor, genre }) => {
     <DropdownButton
       className='mt-3 ml-2'
       as={ButtonGroup}
-      id={`dropdown-variants-Secondary`}
-      variant={'Secondary'.toLowerCase()}
+      id='dropdown-variants-Secondary'
+      variant='secondary'
       title={title}
     >
       {authors.map((authorData, i) => {
@@ -26,8 +26,9 @@ const AuthorsButton = ({ title, page, pageSize, setAuthor, genre }) => {
             key={i}
             eventKey={i + 1}
             onClick={() => {
-              setAuthor(authorData.stringForUrl);
-              getBooks(page, pageSize, authorData.stringForUrl, genre).then(data => {
+              setFilteredValue('author')
+              setFilter(authorData.stringForUrl);
+              getBooks(page, pageSize, 'author', authorData.stringForUrl).then(data => {
                 setBooks(data.books);
               });
             }}

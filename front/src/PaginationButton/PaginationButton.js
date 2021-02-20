@@ -3,7 +3,7 @@ import { Pagination } from 'react-bootstrap';
 import { getBooks } from '../helpers';
 import './PaginationButton.css';
 
-const PaginationButton = ({ pageSize, page, setPage, author }) => {
+const PaginationButton = ({ pageSize, page, setPage }) => {
   const [pagesCountArr, setPagesCountArr] = useState([0]);
 
   const lastPage = pagesCountArr.length;
@@ -16,7 +16,7 @@ const PaginationButton = ({ pageSize, page, setPage, author }) => {
         .then(data => Math.ceil(data.meta.booksCount / pageSize))
         .then(res => Array.from({ length: res }, (v, k) => k + 1))
         .then(arr => setPagesCountArr(arr)),
-    [pageSize, author]
+    [pageSize]
   );
   return (
     <Pagination className='col'>
@@ -26,6 +26,7 @@ const PaginationButton = ({ pageSize, page, setPage, author }) => {
           setPage(previousPage);
         }}
       />
+
       {page === lastPage - 1 || page === lastPage ? (
         <Pagination.Item onClick={() => setPage(1)}>1</Pagination.Item>
       ) : (
@@ -34,7 +35,8 @@ const PaginationButton = ({ pageSize, page, setPage, author }) => {
             <Pagination.Item
               active={page === pageNumber}
               onClick={() => setPage(pageNumber)}
-              key={pageNumber}>
+              key={pageNumber}
+            >
               {pageNumber}
             </Pagination.Item>
           ))
@@ -46,7 +48,8 @@ const PaginationButton = ({ pageSize, page, setPage, author }) => {
           <Pagination.Ellipsis />
           <Pagination.Item
             active={page === lastPage - 1}
-            onClick={() => setPage(lastPage - 1)}>
+            onClick={() => setPage(lastPage - 1)}
+          >
             {lastPage - 1}
           </Pagination.Item>
         </>
@@ -58,7 +61,8 @@ const PaginationButton = ({ pageSize, page, setPage, author }) => {
         active={page === lastPage}
         onClick={() => {
           setPage(lastPage);
-        }}>
+        }}
+      >
         {lastPage}
       </Pagination.Item>
       <Pagination.Next

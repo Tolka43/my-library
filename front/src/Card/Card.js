@@ -67,7 +67,7 @@ const Card = ({ book, id }) => {
             {editMode ? (
               <Button
                 title='zapisz'
-                buttonStyle='btn-outline-info'
+                buttonStyle='btn-outline-info ml-2'
                 onButtonClick={() => {
                   put({ author, genre }, id).then(() => {
                     setEditMode(false);

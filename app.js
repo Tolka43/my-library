@@ -29,15 +29,13 @@ booksRouter
   .get('/', (req, res) => {
     const page = Number(req.query.page);
     const pageSize = Number(req.query.size);
-    const author = req.query.filter?.author;
+    const filteredValue = Object.keys(req.query.filter)[0];
+    const authorOrGenre = req.query.filter && req.query.filter[filteredValue]
     const num = page * pageSize - pageSize;
-    const filteredBooksCount = author
-      ? data.books.filter(book => author === book.author).length
-      : data.books.length;
 
-    const booksPerPage = author
+    const booksPerPage = authorOrGenre
       ? data.books
-          .filter(book => author === book.author)
+          .filter(book => authorOrGenre === book[filteredValue])
           .slice(num, num + pageSize)
       : data.books.slice(num, num + pageSize);
 
@@ -45,7 +43,6 @@ booksRouter
       books: booksPerPage,
       meta: {
         booksCount: data.books.length,
-        filteredBooksCount: filteredBooksCount,
       },
     });
   })
@@ -66,10 +63,10 @@ booksRouter
   .put('/:id', (req, res) => {
     const i = Number(req.params.id);
 
-    const author = req.body.author;
+    const authorOrGenre = req.body.authorOrGenre;
     const genre = req.body.genre;
 
-    data.books[i].author = author;
+    data.books[i].authorOrGenre = authorOrGenre;
     data.books[i].genre = genre;
 
     saveData();
