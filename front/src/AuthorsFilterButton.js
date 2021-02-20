@@ -3,13 +3,14 @@ import { getBooks } from './helpers';
 import { BooksContext } from './App';
 import { useContext } from 'react';
 
-const AuthorsButton = ({ title, page, pageSize, setFilter, setFilteredValue }) => {
+const AuthorsButton = ({page, pageSize, setFilter, setFilteredValue }) => {
   const { setBooks } = useContext(BooksContext);
 
   const authors = [
     { stringForUrl: '', title: 'wszyscy' },
     { stringForUrl: 'Sapkowski+Andrzej', title: 'Sapkowski Andrzej' },
     { stringForUrl: 'Rowling+J.K.', title: 'Rowling J.K.' },
+    { stringForUrl: 'King+Stephen', title: 'King Stephen' },
   ];
 
   return (
@@ -18,7 +19,7 @@ const AuthorsButton = ({ title, page, pageSize, setFilter, setFilteredValue }) =
       as={ButtonGroup}
       id='dropdown-variants-Secondary'
       variant='secondary'
-      title={title}
+      title='author'
     >
       {authors.map((authorData, i) => {
         return (

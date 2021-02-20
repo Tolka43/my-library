@@ -63,10 +63,12 @@ booksRouter
   .put('/:id', (req, res) => {
     const i = Number(req.params.id);
 
-    const authorOrGenre = req.body.authorOrGenre;
+    const author = req.body.author;
     const genre = req.body.genre;
 
-    data.books[i].authorOrGenre = authorOrGenre;
+    console.log(req.body)
+
+    data.books[i].author = author;
     data.books[i].genre = genre;
 
     saveData();

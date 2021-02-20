@@ -3,7 +3,7 @@ import { getBooks } from './helpers';
 import { BooksContext } from './App';
 import { useContext } from 'react';
 
-const GenreButton = ({ title, page, pageSize, setFilter, setFilteredValue }) => {
+const GenreButton = ({page, pageSize, setFilter, setFilteredValue }) => {
   const { setBooks } = useContext(BooksContext);
 
   const genres = [
@@ -20,7 +20,7 @@ const GenreButton = ({ title, page, pageSize, setFilter, setFilteredValue }) => 
       as={ButtonGroup}
       id={`dropdown-variants-Secondary`}
       variant='secondary'
-      title={title}
+      title='gatunek'
     >
       {genres.map((genreData, i) => {
         return (
