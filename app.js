@@ -29,19 +29,27 @@ booksRouter
   .get('/', (req, res) => {
     const page = Number(req.query.page);
     const pageSize = Number(req.query.size);
-    const filteredValue = Object.keys(req.query.filter)[0];
-    const authorOrGenre = req.query.filter && req.query.filter[filteredValue]
+    const filterOption = Object.keys(req.query.filter)[0];
+    const filterValue = req.query.filter && req.query.filter[filterOption];
     const num = page * pageSize - pageSize;
+    const sortOption = Object.keys(req.query.sort)[0];
+    const sortValue = req.query.sort && req.query.sort[sortOption];
 
-    const booksPerPage = authorOrGenre
-      ? data.books
-          .filter(book => authorOrGenre === book[filteredValue])
-          .slice(num, num + pageSize)
-      : data.books.slice(num, num + pageSize);
+    const filteredBooks = filterValue
+      ? data.books.filter(book => filterValue === book[filterOption])
+      : data.books;
+
+    filteredBooks.sort((a, b) => {
+      const compare = a[sortOption].localeCompare(b[sortOption]);
+      return sortValue === 'asc' ? compare : -compare;
+    })
+    
+    const booksPerPage = filteredBooks.slice(num, num + pageSize);
 
     res.status(200).send({
       books: booksPerPage,
       meta: {
+        filteredBooksCount: filteredBooks.length,
         booksCount: data.books.length,
       },
     });
@@ -66,7 +74,7 @@ booksRouter
     const author = req.body.author;
     const genre = req.body.genre;
 
-    console.log(req.body)
+    console.log(req.body);
 
     data.books[i].author = author;
     data.books[i].genre = genre;

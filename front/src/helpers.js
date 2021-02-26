@@ -2,9 +2,16 @@ import config from './config';
 
 const booksApi = config.apiUrl + '/books';
 
-export const getBooks = (page, pageSize, filteredValue, filter) =>
+export const getBooks = ({
+  page,
+  pageSize,
+  filterOption,
+  filterValue,
+  sortOption,
+  sortValue,
+}) =>
   fetch(
-    `${booksApi}?page=${page}&size=${pageSize}&filter[${filteredValue}]=${filter}`
+    `${booksApi}?page=${page}&size=${pageSize}&filter[${filterOption}]=${filterValue}&sort[${sortOption}]=${sortValue}`
   ).then(res => res.json());
 
 export const postBook = body =>

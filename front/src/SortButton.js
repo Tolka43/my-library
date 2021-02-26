@@ -1,17 +1,7 @@
 import { DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
-import { getBooks } from './helpers';
-import { BooksContext } from './App';
-import { useContext } from 'react';
+import { appConfig } from './config';
 
-const SortButton = ({ title, page, pageSize, setFilter, setFilteredValue }) => {
-  const { setBooks } = useContext(BooksContext);
-
-  const sortOptions = [
-    { stringForUrl: '', title: 'wszyscy' },
-    { stringForUrl: 'autorzy-az', title: 'autorzy A-Z' },
-    { stringForUrl: 'autorzy-za', title: 'autorzy Z-A' },
-  ];
-
+const SortButton = ({ setSortValue, setSortOption }) => {
   return (
     <DropdownButton
       className='mt-3 ml-2'
@@ -20,13 +10,18 @@ const SortButton = ({ title, page, pageSize, setFilter, setFilteredValue }) => {
       variant='secondary'
       title='sortuj'
     >
-      {sortOptions.map((sortOption, i) => {
-        return (
-          <Dropdown.Item key={i} eventKey={i + 1} onClick={() => {}}>
-            {sortOption.title}
-          </Dropdown.Item>
-        );
-      })}
+      {appConfig.sortOptions.map((sort, i) => (
+        <Dropdown.Item
+          key={i}
+          eventKey={i + 1}
+          onClick={() => {
+            setSortValue(sort.sortValue);
+            setSortOption(sort.sortOption);
+          }}
+        >
+          {sort.label}
+        </Dropdown.Item>
+      ))}
     </DropdownButton>
   );
 };

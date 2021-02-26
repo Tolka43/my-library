@@ -20,17 +20,31 @@ const Main = () => {
   const [viewMode, setViewMode] = useState('tiles');
   const [pageSize, setPageSize] = useState(8);
   const [page, setPage] = useState(1);
-  const [filter, setFilter] = useState('');
-  const [genre, setGenre] = useState('');
-  const [filteredValue, setFilteredValue] = useState('author');
+  const [filterValue, setFilterValue] = useState('');
+  const [filterOption, setFilterOption] = useState('');
+  const [sortValue, setSortValue] = useState('asc');
+  const [sortOption, setSortOption] = useState('author');
 
   const { setBooks } = useContext(BooksContext);
 
   useEffect(() => {
-    getBooks(page, pageSize, filteredValue, filter).then(data =>
-      setBooks(data.books)
-    );
-  }, [setBooks, filter, page, pageSize]);
+    getBooks({
+      page,
+      pageSize,
+      filterOption,
+      filterValue,
+      sortOption,
+      sortValue,
+    }).then(data => setBooks(data.books));
+  }, [
+    setBooks,
+    filterOption,
+    filterValue,
+    page,
+    pageSize,
+    sortValue,
+    sortOption,
+  ]);
 
   return (
     <ViewModeContext.Provider value={viewMode}>
@@ -40,13 +54,15 @@ const Main = () => {
             <BookCreator />
           </div>
           <div className='col-md-1'>
-            <SortButton />
+            <SortButton
+              setSortValue={setSortValue}
+              setSortOption={setSortOption}
+            />
           </div>
           <div className='col-md-1'>
             <GenreButton
-              filter={filter}
-              setFilter={setFilter}
-              setFilteredValue={setFilteredValue}
+              setFilterValue={setFilterValue}
+              setFilterOption={setFilterOption}
               page={page}
               pageSize={pageSize}
             />
@@ -55,9 +71,8 @@ const Main = () => {
             <AuthorsButton
               page={page}
               pageSize={pageSize}
-              setFilter={setFilter}
-              genre={genre}
-              setFilteredValue={setFilteredValue}
+              setFilterValue={setFilterValue}
+              setFilterOption={setFilterOption}
             />
           </div>
           <div className='col-md-1'>
@@ -69,12 +84,7 @@ const Main = () => {
         </div>
         <Cards />
         <div className='row justify-content-center'>
-          <PaginationButton
-            pageSize={pageSize}
-            page={page}
-            setPage={setPage}
-            filter={filter}
-          />
+          <PaginationButton pageSize={pageSize} page={page} setPage={setPage} />
         </div>
         <div>
           <Mail />

@@ -12,7 +12,7 @@ const PaginationButton = ({ pageSize, page, setPage }) => {
 
   useEffect(
     () =>
-      getBooks()
+      getBooks({})
         .then(data => Math.ceil(data.meta.booksCount / pageSize))
         .then(res => Array.from({ length: res }, (v, k) => k + 1))
         .then(arr => setPagesCountArr(arr)),
