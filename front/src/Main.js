@@ -25,6 +25,8 @@ const Main = () => {
   const [sortValue, setSortValue] = useState('asc');
   const [sortOption, setSortOption] = useState('author');
 
+  const [pagesCountArr, setPagesCountArr] = useState([0]);
+
   const { setBooks } = useContext(BooksContext);
 
   useEffect(() => {
@@ -35,7 +37,14 @@ const Main = () => {
       filterValue,
       sortOption,
       sortValue,
-    }).then(data => setBooks(data.books));
+    })
+      .then(data => {
+        setBooks(data.books);
+        return data;
+      })
+      .then(data => Math.ceil(data.meta.filteredBooksCount / pageSize))
+      .then(res => Array.from({ length: res }, (v, k) => k + 1))
+      .then(arr => setPagesCountArr(arr));
   }, [
     setBooks,
     filterOption,
@@ -48,18 +57,18 @@ const Main = () => {
 
   return (
     <ViewModeContext.Provider value={viewMode}>
-      <div className='siteBody container'>
+      <div className='siteBody container-lg'>
         <div className='row'>
-          <div className='col-md-4'>
+          <div className='col-4'>
             <BookCreator />
           </div>
-          <div className='col-md-1'>
+          <div className='col-1'>
             <SortButton
               setSortValue={setSortValue}
               setSortOption={setSortOption}
             />
           </div>
-          <div className='col-md-1'>
+          <div className='col-1'>
             <GenreButton
               setFilterValue={setFilterValue}
               setFilterOption={setFilterOption}
@@ -67,7 +76,7 @@ const Main = () => {
               pageSize={pageSize}
             />
           </div>
-          <div className='col-md-3'>
+          <div className='col-3'>
             <AuthorsButton
               page={page}
               pageSize={pageSize}
@@ -75,16 +84,20 @@ const Main = () => {
               setFilterOption={setFilterOption}
             />
           </div>
-          <div className='col-md-1'>
+          <div className='col-1'>
             <ViewModeButton setViewMode={setViewMode} />
           </div>
-          <div className='col-md-2'>
+          <div className='col-2'>
             <PageSizeButton setPageSize={setPageSize} />
           </div>
         </div>
         <Cards />
         <div className='row justify-content-center'>
-          <PaginationButton pageSize={pageSize} page={page} setPage={setPage} />
+          <PaginationButton
+            page={page}
+            setPage={setPage}
+            pagesCountArr={pagesCountArr}
+          />
         </div>
         <div>
           <Mail />

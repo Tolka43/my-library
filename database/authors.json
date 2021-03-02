@@ -1,0 +1,10 @@
+{
+  "authors": [
+    { "id": 1, "surname": "King", "name": "Stephen" },
+    { "id": 2, "surname": "Rowling", "name": "Joanne" },
+    { "id": 3, "surname": "Tolkien", "name": "John" },
+    { "id": 4, "surname": "Kamiński", "name": "Aleksander" },
+    { "id": 5, "surname": "Molnár", "name": "Ferenc" },
+    { "id": 6, "surname": "Sapkowski", "name": "Andrzej" }
+  ]
+}

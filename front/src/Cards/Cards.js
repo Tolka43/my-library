@@ -12,7 +12,7 @@ const Cards = () => {
     <div className='row'>
       {books?.map((book, i) => (
         <div
-          className={`${viewMode === 'tiles' ? 'col-6' : 'col-12'} mb-3`}
+          className={`${viewMode === 'tiles' ? 'col-lg-6' : 'col-lg-12'} mb-3`}
           key={i}
         >
           <Card book={book} id={i} />
