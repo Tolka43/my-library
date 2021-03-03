@@ -12,13 +12,25 @@ const router = express.Router();
 const port = process.env.PORT || 4444;
 
 // DATABASE
-const json = fs.readFileSync(path.resolve('./database/books.json'), {
-  encoding: 'utf8',
-});
-const data = JSON.parse(json);
+
+const options = { encoding: 'utf8' };
+
+const booksJson = fs.readFileSync(
+  path.resolve('./database/books.json'),
+  options
+);
+const books = JSON.parse(booksJson);
+
+const authorsJson = fs.readFileSync(
+  path.resolve('./database/authors.json'),
+  options
+);
+const authors = JSON.parse(authorsJson);
+
+console.log(authors);
 
 const saveData = () => {
-  const stringifiedData = JSON.stringify(data);
+  const stringifiedData = JSON.stringify(books);
   fs.writeFile('./database/books.json', stringifiedData, () =>
     console.log('zapisano')
   );
@@ -35,38 +47,52 @@ booksRouter
     const sortOption = Object.keys(req.query.sort)[0];
     const sortValue = req.query.sort && req.query.sort[sortOption];
 
+    const booksWithAuthors = books.books.map(book => {
+      const author = authors.authors.find(
+        author => book.authorId === author.id
+      );
+      return { ...book, author };
+    });
+
     const filteredBooks = filterValue
-      ? data.books.filter(book => filterValue === book[filterOption])
-      : data.books;
+      ? booksWithAuthors.filter(book =>
+          filterOption === 'author'
+            ? filterValue === book.author.surname
+            : filterValue === book[filterOption]
+        )
+      : booksWithAuthors;
 
     filteredBooks.sort((a, b) => {
-      const compare = a[sortOption].localeCompare(b[sortOption]);
+      const compare =
+        sortOption === 'author'
+          ? a.author.surname.localeCompare(b.author.surname)
+          : a[sortOption].localeCompare(b[sortOption]);
       return sortValue === 'asc' ? compare : -compare;
-    })
-    
+    });
+
     const booksPerPage = filteredBooks.slice(num, num + pageSize);
 
     res.status(200).send({
       books: booksPerPage,
       meta: {
         filteredBooksCount: filteredBooks.length,
-        booksCount: data.books.length,
+        booksCount: books.books.length,
       },
     });
   })
   .post('/', (req, res) => {
     const book = req.body;
-    data.books.push(book);
+    books.books.push(book);
     saveData();
     res.sendStatus(200);
   })
   .delete('/:id', (req, res) => {
-    data.books.splice(Number(req.params.id), 1);
-    res.status(200).send(data);
+    books.books.splice(Number(req.params.id), 1);
+    res.status(200).send(books);
   })
   .get('/harry/:par/:asd', (req, res) => {
     console.log(req.params);
-    res.status(200).send(data);
+    res.status(200).send(books);
   })
   .put('/:id', (req, res) => {
     const i = Number(req.params.id);
@@ -76,8 +102,8 @@ booksRouter
 
     console.log(req.body);
 
-    data.books[i].author = author;
-    data.books[i].genre = genre;
+    books.books[i].author = author;
+    books.books[i].genre = genre;
 
     saveData();
 

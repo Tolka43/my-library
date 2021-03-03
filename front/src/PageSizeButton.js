@@ -2,7 +2,7 @@ import { appConfig } from "./config";
 
 const PageSizeButton = ({ setPageSize }) => {
   return (
-    <div className='btn-group mt-3' role='group' aria-label='Second group'>
+    <div className='btn-group' role='group' aria-label='Second group'>
       {appConfig.pageSizes.map(pageSize => (
         <button
           key={pageSize}

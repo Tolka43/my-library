@@ -3,141 +3,110 @@
     {
       "title": "Lśnienie",
       "authorId": 1,
-      "author": "King Stephen",
       "genre": "horror",
       "img": "/lsnienie.jpg"
     },
     {
       "title": "Carrie",
       "authorId": 1,
-      "author": "King Stephen",
       "genre": "horror",
       "img": "/carrie.jpg"
     },
     {
       "title": "Miasteczko Salem",
       "authorId": 1,
-      "author": "King Stephen",
       "genre": "horror",
       "img": "/miasteczko-salem.jpg"
     },
     {
       "title": "Cmętarz zwieżąt",
       "authorId": 1,
-      "author": "King Stephen",
       "genre": "horror",
       "img": "/cmetarz-zwiezat.jpg"
     },
     {
       "title": "Cztery pory roku",
       "authorId": 1,
-      "author": "King Stephen",
       "genre": "horror",
       "img": "/cztery-pory-roku.jpg"
     },
     {
       "title": "To",
       "authorId": 1,
-      "author": "King Stephen",
       "genre": "horror",
       "img": "/to.jpg"
     },
     {
       "title": "Harry Potter i Kamień Filozoficzny",
       "authorId": 2,
-      "author": "Rowling J.K.",
       "genre": "literatura młodzieżowa",
       "img": "/harry-kamien-filozoficzny.jpg"
     },
     {
       "title": "Harry Potter i Komnata Tajemnic",
       "authorId": 2,
-      "author": "Rowling J.K.",
       "genre": "literatura młodzieżowa",
       "img": "/harry-komnata-tajemnic.jpg"
     },
     {
       "title": "Harry Potter i więzień Azkabanu",
       "authorId": 2,
-      "author": "Rowling J.K.",
       "genre": "literatura młodzieżowa",
       "img": "/harry-wiezien-azkabanu.jpg"
     },
     {
       "title": "Harry Potter i Czara Ognia",
       "authorId": 2,
-      "author": "Rowling J.K.",
       "genre": "literatura młodzieżowa",
       "img": "/harry-czara-ognia.jpg"
     },
     {
       "title": "Harry Potter i Zakon Feniksa",
       "authorId": 2,
-      "author": "Rowling J.K.",
       "genre": "literatura młodzieżowa",
       "img": "/harry-zakon-feniksa.jpg"
     },
     {
       "title": "Hobbit",
       "authorId": 3,
-      "author": "J.R.R. Tolkien",
       "genre": "fantastyka",
       "img": "/hobbit.jpg"
     },
     {
       "title": "Kamienie na szaniec",
       "authorId": 4,
-      "author": "Aleksander Kamiński",
       "genre": "powieść historyczna",
       "img": "/kamienie-na-szaniec.jpg"
     },
     {
       "title": "Chłopcy z placu broni",
       "authorId": 5,
-      "author": "Ferenc Molnar",
       "genre": "powieść, literatura młodzieżowa",
       "img": "/chlopcy-z-placu-broni.jpg"
     },
     {
       "title": "Ostatnie życzenie",
       "authorId": 6,
-      "author": "Sapkowski Andrzej",
       "genre": "fantastyka",
       "img": "/wiedzmin-ostatnie-zyczenie.jpg"
     },
     {
       "title": "Miecz przeznaczenia",
       "authorId": 6,
-      "author": "Sapkowski Andrzej",
       "genre": "fantastyka",
       "img": "/wiedzmin-miecz-przeznaczenia.jpg"
     },
     {
       "title": "Krew elfów",
       "authorId": 6,
-      "author": "Sapkowski Andrzej",
       "genre": "fantastyka",
       "img": "/wiedzmin-krew-elfow.jpg"
     },
     {
       "title": "Czas pogardy",
       "authorId": 6,
-      "author": "Sapkowski Andrzej",
       "genre": "fantastyka",
       "img": "/wiedzmin-czas-pogardy.jpg"
     }
-  ],
-  "genreOptions": [
-    "dramat",
-    "komedia",
-    "literatura młodzieżowa",
-    "powieść obyczajowa",
-    "powieść historyczna",
-    "baśń",
-    "horror",
-    "fantastyka",
-    "kryminał",
-    "nowela",
-    "dla dzieci"
   ]
 }

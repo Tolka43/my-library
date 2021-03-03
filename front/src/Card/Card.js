@@ -17,7 +17,7 @@ const Card = ({ book, id }) => {
   const [author, setAuthor] = useState(book.author);
 
   const { setBooks, books } = useContext(BooksContext);
-  const viewMode = useContext(ViewModeContext)
+  const viewMode = useContext(ViewModeContext);
 
   return (
     <div className='card ml-2'>
@@ -44,13 +44,13 @@ const Card = ({ book, id }) => {
                 <SmallInput
                   title='autor:'
                   onInputChange={setAuthor}
-                  inputValue={book.author}
+                  inputValue={`${book.author.surname} ${book.author.name}`}
                 />
                 <Select onInputChange={setGenre} defaultOption={book.genre} />
               </>
             ) : (
               <>
-                <p className='card-text'>autor: {book.author}</p>
+                <p className='card-text'>autor: {`${book.author.surname} ${book.author.name}`}</p>
                 <p className='card-text'>gatunek: {book.genre}</p>
               </>
             )}

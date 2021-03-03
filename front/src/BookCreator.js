@@ -19,7 +19,7 @@ function BookCreator() {
     <>
       <Button
         title='dodaj książkę'
-        buttonStyle='btn-secondary m-3'
+        buttonStyle='btn-secondary'
         onButtonClick={handleShow}
       />
 

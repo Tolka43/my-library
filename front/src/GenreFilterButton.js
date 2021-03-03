@@ -4,7 +4,6 @@ import { appConfig } from './config';
 const GenreButton = ({ setFilterValue, setFilterOption }) => {
   return (
     <DropdownButton
-      className='mt-3'
       as={ButtonGroup}
       id={`dropdown-variants-Secondary`}
       variant='secondary'

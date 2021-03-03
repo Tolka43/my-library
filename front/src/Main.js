@@ -59,36 +59,40 @@ const Main = () => {
     <ViewModeContext.Provider value={viewMode}>
       <div className='siteBody container-lg'>
         <div className='row'>
-          <div className='col-4'>
+          <div className='col-lg-4 d-flex justify-content-start py-3'>
             <BookCreator />
           </div>
-          <div className='col-1'>
-            <SortButton
-              setSortValue={setSortValue}
-              setSortOption={setSortOption}
-            />
+          <div className='col-lg-4 d-flex justify-content-start justify-content-lg-center py-3'>
+            <div>
+              <SortButton
+                setSortValue={setSortValue}
+                setSortOption={setSortOption}
+              />
+            </div>
+            <div>
+              <GenreButton
+                setFilterValue={setFilterValue}
+                setFilterOption={setFilterOption}
+                page={page}
+                pageSize={pageSize}
+              />
+            </div>
+            <div>
+              <AuthorsButton
+                page={page}
+                pageSize={pageSize}
+                setFilterValue={setFilterValue}
+                setFilterOption={setFilterOption}
+              />
+            </div>
           </div>
-          <div className='col-1'>
-            <GenreButton
-              setFilterValue={setFilterValue}
-              setFilterOption={setFilterOption}
-              page={page}
-              pageSize={pageSize}
-            />
-          </div>
-          <div className='col-3'>
-            <AuthorsButton
-              page={page}
-              pageSize={pageSize}
-              setFilterValue={setFilterValue}
-              setFilterOption={setFilterOption}
-            />
-          </div>
-          <div className='col-1'>
-            <ViewModeButton setViewMode={setViewMode} />
-          </div>
-          <div className='col-2'>
-            <PageSizeButton setPageSize={setPageSize} />
+          <div className='col-lg-4 d-flex justify-content-start justify-content-lg-end py-3'>
+            <div>
+              <ViewModeButton setViewMode={setViewMode} />
+            </div>
+            <div>
+              <PageSizeButton setPageSize={setPageSize} />
+            </div>
           </div>
         </div>
         <Cards />

@@ -9,7 +9,7 @@ const ViewModeButton = ({ setViewMode }) => {
 
   return (
     <>
-    <div className='btn-group mt-3' role='group' aria-label='Second group'>
+    <div className='btn-group' role='group' aria-label='Second group'>
       {radios.map(radio => (
         <button
           onClick={() => setViewMode(radio.option)}

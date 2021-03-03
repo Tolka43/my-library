@@ -4,7 +4,6 @@ import { appConfig } from './config';
 const SortButton = ({ setSortValue, setSortOption }) => {
   return (
     <DropdownButton
-      className='mt-3 ml-2'
       as={ButtonGroup}
       id='dropdown-variants-Secondary'
       variant='secondary'

@@ -16,9 +16,9 @@ export const appConfig = {
   ],
   authors: [
     { stringForUrl: '', title: 'wszyscy' },
-    { stringForUrl: 'Sapkowski+Andrzej', title: 'Sapkowski Andrzej' },
-    { stringForUrl: 'Rowling+J.K.', title: 'Rowling J.K.' },
-    { stringForUrl: 'King+Stephen', title: 'King Stephen' },
+    { stringForUrl: 'Sapkowski', title: 'Sapkowski Andrzej' },
+    { stringForUrl: 'Rowling', title: 'Rowling J.K.' },
+    { stringForUrl: 'King', title: 'King Stephen' },
   ],
   genres: [
     { stringForUrl: '', title: 'wszystkie' },
