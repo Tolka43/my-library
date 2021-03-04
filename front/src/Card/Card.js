@@ -15,7 +15,7 @@ const Card = ({ book, id }) => {
   const [editMode, setEditMode] = useState(false);
   const [genre, setGenre] = useState(book.genre);
   const [author, setAuthor] = useState(book.author);
-
+  const [favoriteBook, setFavoriteBook] = useState(false)
   const { setBooks, books } = useContext(BooksContext);
   const viewMode = useContext(ViewModeContext);
 
@@ -33,11 +33,18 @@ const Card = ({ book, id }) => {
           <div className='card-body'>
             <div className='d-flex justify-content-between'>
               <h5 className='card-title'>{book.title}</h5>
-              <FontAwesomeIcon
-                icon={faPen}
-                className='pen-icon'
-                onClick={() => setEditMode(!editMode)}
-              />
+              <div >
+                <FontAwesomeIcon
+                  icon={favoriteBook ? ["fas", "heart"] : ["far", "heart"]}
+                  className='heart-icon mx-2'
+                  onClick={() => setFavoriteBook(!favoriteBook)}
+                />
+                <FontAwesomeIcon
+                  icon={faPen}
+                  className='pen-icon ml-2'
+                  onClick={() => setEditMode(!editMode)}
+                />
+              </div>
             </div>
             {editMode ? (
               <>
@@ -50,7 +57,9 @@ const Card = ({ book, id }) => {
               </>
             ) : (
               <>
-                <p className='card-text'>autor: {`${book.author.surname} ${book.author.name}`}</p>
+                <p className='card-text'>
+                  autor: {`${book.author.surname} ${book.author.name}`}
+                </p>
                 <p className='card-text'>gatunek: {book.genre}</p>
               </>
             )}

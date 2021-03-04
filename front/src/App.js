@@ -3,6 +3,7 @@ import AppNavbar from './Navbar/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Footer from './Footer/Footer';
 import Main from './Main';
+import Favorites from './Favorites';
 
 export const BooksContext = createContext();
 
@@ -16,7 +17,7 @@ const App = () => {
 
         <Switch>
           <Route path='/favorites'>
-            <div className='siteBody'></div>
+            <Favorites />
           </Route>
 
           <Route path='/settings'>

@@ -1,4 +1,5 @@
-.pen-icon {
+.pen-icon,
+.heart-icon {
   color: #b9c3cc;
   cursor: pointer;
 }
