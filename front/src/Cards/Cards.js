@@ -3,11 +3,13 @@ import Card from '../Card/Card';
 import { ViewModeContext } from '../Main';
 import './Cards.css';
 import { BooksContext } from '../App';
+import { FavoriteBooksContext } from '../Favorites';
 
 const Cards = () => {
   const viewMode = useContext(ViewModeContext);
   const { books } = useContext(BooksContext);
-  const [favoriteBooks, setFavoriteBooks] = useState()
+  // const [favoriteBooks, setFavoriteBooks] = useState()
+  const { favoriteBooks, setFavoriteBooks } = useContext(FavoriteBooksContext)
 
   return (
     <div className='row'>
