@@ -1,24 +1,27 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import Card from '../Card/Card';
 import { ViewModeContext } from '../Main';
 import './Cards.css';
 import { BooksContext } from '../App';
-import { FavoriteBooksContext } from '../Favorites';
+import { useFavoriteBooks } from '../hooks/useFavoriteBooks';
 
 const Cards = () => {
   const viewMode = useContext(ViewModeContext);
   const { books } = useContext(BooksContext);
-  // const [favoriteBooks, setFavoriteBooks] = useState()
-  const { favoriteBooks, setFavoriteBooks } = useContext(FavoriteBooksContext)
+  const { toggleFavoriteBook } = useFavoriteBooks();
 
   return (
     <div className='row'>
-      {books?.map((book, i) => (
+      {books?.map(book => (
         <div
           className={`${viewMode === 'tiles' ? 'col-lg-6' : 'col-lg-12'} mb-3`}
-          key={i}
+          key={book.id}
         >
-          <Card book={book} id={i} favoriteBooks={favoriteBooks} setFavoriteBooks={setFavoriteBooks} />
+          <Card
+            book={book}
+            id={book.id}
+            toggleFavoriteBook={toggleFavoriteBook}
+          />
         </div>
       ))}
     </div>
