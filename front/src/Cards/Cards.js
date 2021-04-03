@@ -8,7 +8,7 @@ import { useFavoriteBooks } from '../hooks/useFavoriteBooks';
 const Cards = () => {
   const viewMode = useContext(ViewModeContext);
   const { books } = useContext(BooksContext);
-  const { toggleFavoriteBook } = useFavoriteBooks();
+  const { toggleFavoriteBook, favoriteBooks } = useFavoriteBooks();
 
   return (
     <div className='row'>
@@ -21,6 +21,7 @@ const Cards = () => {
             book={book}
             id={book.id}
             toggleFavoriteBook={toggleFavoriteBook}
+            favoriteBooks={favoriteBooks}
           />
         </div>
       ))}

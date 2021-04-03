@@ -1,7 +1,7 @@
 import './Card.css';
 import Button from '../Button';
 import { deleteBook } from '../helpers';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import SmallInput from '../Inputs/SmallInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
@@ -11,13 +11,14 @@ import Select from '../Select/Select';
 import { BooksContext } from '../App';
 import { ViewModeContext } from '../Main';
 
-const Card = ({ book, id, toggleFavoriteBook }) => {
+const Card = ({ book, id, toggleFavoriteBook, favoriteBooks }) => {
   const [editMode, setEditMode] = useState(false);
   const [genre, setGenre] = useState(book.genre);
   const [author, setAuthor] = useState(book.author);
   const [favoriteBook, setFavoriteBook] = useState(false);
   const { setBooks, books } = useContext(BooksContext);
   const viewMode = useContext(ViewModeContext);
+  useEffect(() => setFavoriteBook(favoriteBooks.includes(book.id)), []);
 
   return (
     <div className='card ml-2'>
@@ -38,7 +39,7 @@ const Card = ({ book, id, toggleFavoriteBook }) => {
                   icon={favoriteBook ? ['fas', 'heart'] : ['far', 'heart']}
                   className='heart-icon mx-2'
                   onClick={() => {
-                    setFavoriteBook(!favoriteBook);
+                   setFavoriteBook(!favoriteBook)
                     toggleFavoriteBook(book.id);
                   }}
                 />

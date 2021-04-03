@@ -12,7 +12,7 @@ export const useFavoriteBooks = () => {
   const toggleFavoriteBook = bookId => {
     const updateFavoriteBooks = favBooks => {
       setFavoriteBooks(favBooks);
-      localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks));
+      localStorage.setItem('favoriteBooks', JSON.stringify(favBooks));
     };
 
     const isBookInFavorites = favoriteBooks.includes(bookId);
