@@ -41,10 +41,10 @@ booksRouter
   .get('/', (req, res) => {
     const page = Number(req.query.page);
     const pageSize = Number(req.query.size);
-    const filterOption = Object.keys(req.query.filter)[0];
+    const filterOption = req.query.filter && Object.keys(req.query.filter)[0];
     const filterValue = req.query.filter && req.query.filter[filterOption];
     const num = page * pageSize - pageSize;
-    const sortOption = Object.keys(req.query.sort)[0];
+    const sortOption = req.query.sort && Object.keys(req.query.sort)[0];
     const sortValue = req.query.sort && req.query.sort[sortOption];
 
     const booksWithAuthors = books.books.map(book => {
@@ -62,15 +62,21 @@ booksRouter
         )
       : booksWithAuthors;
 
-    filteredBooks.sort((a, b) => {
-      const compare =
-        sortOption === 'author'
-          ? a.author.surname.localeCompare(b.author.surname)
-          : a[sortOption].localeCompare(b[sortOption]);
-      return sortValue === 'asc' ? compare : -compare;
-    });
+    if (filteredBooks.length > 1 && sortOption) {
+      filteredBooks.sort((a, b) => {
+        console.log(a.author, b.author);
+        const compare =
+          sortOption === 'author'
+            ? a.author.surname.localeCompare(b.author.surname)
+            : a[sortOption].localeCompare(b[sortOption]);
+        return sortValue === 'asc' ? compare : -compare;
+      });
+    }
 
-    const booksPerPage = filteredBooks.slice(num, num + pageSize);
+    const booksPerPage =
+      page && pageSize
+        ? filteredBooks.slice(num, num + pageSize)
+        : filteredBooks;
 
     res.status(200).send({
       books: booksPerPage,
