@@ -16,7 +16,7 @@ import SortButton from './SortButton';
 
 export const ViewModeContext = createContext();
 
-const Main = () => {
+const Main = ({toggleFavoriteBook, favoriteBooks, isBookFavorite}) => {
   const [viewMode, setViewMode] = useState('tiles');
   const [pageSize, setPageSize] = useState(8);
   const [page, setPage] = useState(1);
@@ -95,7 +95,10 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <Cards />
+        <Cards 
+        toggleFavoriteBook={toggleFavoriteBook}
+        isBookFavorite={isBookFavorite}
+        favoriteBooks={favoriteBooks}/>
         <div className='row justify-content-center'>
           <PaginationButton
             page={page}

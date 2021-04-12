@@ -9,13 +9,15 @@ export const useFavoriteBooks = () => {
     setFavoriteBooks(booksId);
   }, []);
 
+  const isBookFavorite = bookId => favoriteBooks.includes(bookId);
+
   const toggleFavoriteBook = bookId => {
     const updateFavoriteBooks = favBooks => {
       setFavoriteBooks(favBooks);
       localStorage.setItem('favoriteBooks', JSON.stringify(favBooks));
     };
 
-    const isBookInFavorites = favoriteBooks.includes(bookId);
+    const isBookInFavorites = isBookFavorite(bookId);
 
     if (isBookInFavorites) {
       const filteredBooks = favoriteBooks.filter(book => book !== bookId);
@@ -26,8 +28,10 @@ export const useFavoriteBooks = () => {
     }
   };
 
+
   return {
     favoriteBooks,
     toggleFavoriteBook,
+    isBookFavorite,
   };
 };

@@ -3,12 +3,11 @@ import Card from '../Card/Card';
 import { ViewModeContext } from '../Main';
 import './Cards.css';
 import { BooksContext } from '../App';
-import { useFavoriteBooks } from '../hooks/useFavoriteBooks';
 
-const Cards = () => {
+const Cards = ({toggleFavoriteBook, favoriteBooks, isBookFavorite}) => {
   const viewMode = useContext(ViewModeContext);
   const { books } = useContext(BooksContext);
-  const { toggleFavoriteBook, favoriteBooks } = useFavoriteBooks();
+  
 
   return (
     <div className='row'>
@@ -22,6 +21,7 @@ const Cards = () => {
             id={book.id}
             toggleFavoriteBook={toggleFavoriteBook}
             favoriteBooks={favoriteBooks}
+            isBookFavorite={isBookFavorite}
           />
         </div>
       ))}

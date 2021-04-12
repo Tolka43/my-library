@@ -1,7 +1,7 @@
 import './Card.css';
 import Button from '../Button';
 import { deleteBook } from '../helpers';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import SmallInput from '../Inputs/SmallInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
@@ -11,14 +11,12 @@ import Select from '../Select/Select';
 import { BooksContext } from '../App';
 import { ViewModeContext } from '../Main';
 
-const Card = ({ book, id, toggleFavoriteBook, favoriteBooks }) => {
+const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
   const [editMode, setEditMode] = useState(false);
   const [genre, setGenre] = useState(book.genre);
   const [author, setAuthor] = useState(book.author);
-  const [favoriteBook, setFavoriteBook] = useState(false);
   const { setBooks, books } = useContext(BooksContext);
   const viewMode = useContext(ViewModeContext);
-  useEffect(() => setFavoriteBook(favoriteBooks.includes(book.id)), []);
 
   return (
     <div className='card ml-2'>
@@ -36,10 +34,9 @@ const Card = ({ book, id, toggleFavoriteBook, favoriteBooks }) => {
               <h5 className='card-title'>{book.title}</h5>
               <div>
                 <FontAwesomeIcon
-                  icon={favoriteBook ? ['fas', 'heart'] : ['far', 'heart']}
+                  icon={isBookFavorite(book.id) ? ['fas', 'heart'] : ['far', 'heart']}
                   className='heart-icon mx-2'
                   onClick={() => {
-                   setFavoriteBook(!favoriteBook)
                     toggleFavoriteBook(book.id);
                   }}
                 />

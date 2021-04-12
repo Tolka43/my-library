@@ -9,10 +9,25 @@ export const getBooks = ({
   filterValue,
   sortOption,
   sortValue,
-}) =>
-  fetch(
-    `${booksApi}?page=${page}&size=${pageSize}&filter[${filterOption}]=${filterValue}&sort[${sortOption}]=${sortValue}`
-  ).then(res => res.json());
+}) => {
+  const parts = [];
+
+  if (page) {
+    parts.push(`page=${page}`);
+  }
+  if (pageSize) {
+    parts.push(`size=${pageSize}`);
+  }
+  if (filterValue && filterOption) {
+    parts.push(`filter[${filterOption}]=${filterValue}`);
+  }
+  if (sortOption && sortValue) {
+    parts.push(`sort[${sortOption}]=${sortValue}`);
+  }
+
+  const url = parts.length === 0 ? booksApi : `${booksApi}?${parts.join('&')}`;
+  return fetch(url).then(res => res.json());
+};
 
 export const postBook = body =>
   fetch(booksApi, {

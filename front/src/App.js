@@ -4,11 +4,17 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Footer from './Footer/Footer';
 import Main from './Main';
 import Favorites from './Favorites';
+import { useFavoriteBooks } from './hooks/useFavoriteBooks';
 
 export const BooksContext = createContext();
 
 const App = () => {
   const [books, setBooks] = useState();
+  const {
+    toggleFavoriteBook,
+    favoriteBooks,
+    isBookFavorite,
+  } = useFavoriteBooks();
 
   return (
     <BooksContext.Provider value={{ books, setBooks }}>
@@ -17,7 +23,7 @@ const App = () => {
 
         <Switch>
           <Route path='/favorites'>
-            <Favorites />
+            <Favorites favoriteBooks={favoriteBooks} />
           </Route>
 
           <Route path='/settings'>
@@ -25,7 +31,11 @@ const App = () => {
           </Route>
 
           <Route path='/'>
-            <Main />
+            <Main
+              toggleFavoriteBook={toggleFavoriteBook}
+              favoriteBooks={favoriteBooks}
+              isBookFavorite={isBookFavorite}
+            />
           </Route>
         </Switch>
 

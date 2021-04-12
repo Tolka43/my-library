@@ -55,12 +55,23 @@ booksRouter
     });
 
     const filteredBooks = filterValue
-      ? booksWithAuthors.filter(book =>
-          filterOption === 'author'
-            ? filterValue === book.author.surname
-            : filterValue === book[filterOption]
-        )
+      ? booksWithAuthors.filter(book => {
+          switch (filterOption) {
+            case 'author': {
+              return filterValue === book.author.surname;
+            }
+            case 'id': {
+              const stringifyIds = filterValue.split(',');
+              return stringifyIds.includes(String(book.id));
+            }
+            default: {
+              return filterValue === book[filterOption];
+            }
+          }
+        })
       : booksWithAuthors;
+
+    console.log(filterOption, filterValue);
 
     if (filteredBooks.length > 1 && sortOption) {
       filteredBooks.sort((a, b) => {
