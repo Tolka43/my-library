@@ -12,11 +12,16 @@ const Favorites = ({ favoriteBooks }) => {
   }, [favoriteBooks]);
 
   return (
-    <ul>
-      {books?.map(book => (
-        <li key={book.id}>{book.title}</li>
-      ))}
-    </ul>
+    <div className='siteBody container-lg'>
+      <h1 className='m-4' >Ulubione książki</h1>
+      <ul className='list-group'>
+        {books?.map(book => (
+          <li className='list-group-item' key={book.id}>
+            {`"${book.title}" ~ ${book.author.surname} ${book.author.name}`}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
