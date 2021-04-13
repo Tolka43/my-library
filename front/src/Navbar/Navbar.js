@@ -18,7 +18,7 @@ const AppNavbar = () => (
         </Link>
       </Nav>
       <Nav>
-        <Link className='link' to='/login'>
+        <Link className='link ml-2' to='/login'>
           zaloguj się
         </Link>
       </Nav>

@@ -3,7 +3,7 @@ import AppNavbar from './Navbar/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Footer from './Footer/Footer';
 import Main from './Main';
-import Favorites from './Favorites';
+import Favorites from './Favorites/Favorites';
 import { useFavoriteBooks } from './hooks/useFavoriteBooks';
 
 export const BooksContext = createContext();
