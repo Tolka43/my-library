@@ -16,7 +16,7 @@ const Favorites = ({ favoriteBooks }) => {
       <h1 className='m-4' >Ulubione książki</h1>
       <ul className='list-group'>
         {books?.map(book => (
-          <li className='list-group-item' key={book.id}>
+          <li className='list-group-item m-1' key={book.id}>
             {`"${book.title}" ~ ${book.author.surname} ${book.author.name}`}
           </li>
         ))}
