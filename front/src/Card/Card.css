@@ -8,10 +8,12 @@
   height: 100%;
 }
 
-.card {
+.row {
   height: 100%;
 }
 
-.row {
-  height: 100%;
+@media only screen and (min-width: 768px) {
+  .card {
+    height: 100%;
+  }
 }

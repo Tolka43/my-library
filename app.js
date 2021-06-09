@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import fs from 'fs';
 import path from 'path';
-import { sendMail } from './mailer.js';
 
 const app = express();
 const booksRouter = express.Router();
@@ -75,7 +74,6 @@ booksRouter
 
     if (filteredBooks.length > 1 && sortOption) {
       filteredBooks.sort((a, b) => {
-        console.log(a.author, b.author);
         const compare =
           sortOption === 'author'
             ? a.author.surname.localeCompare(b.author.surname)
@@ -129,18 +127,9 @@ booksRouter
 
 router
   .get('*', (req, res) => {
+    console.log(req.url)
     res.sendFile(path.resolve(`./images/${req.url}`));
   })
-  .post('/mail', (req, res) => {
-    const mail = req.body.mail;
-    sendMail(mail)
-      .then(() => {
-        res.sendStatus(200);
-      })
-      .catch(() => {
-        res.sendStatus(500);
-      });
-  });
 
 // APP
 app

@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { getBooks } from '../helpers';
-import { Card, Accordion, Toggle } from 'react-bootstrap';
+import { Card, Accordion } from 'react-bootstrap';
 import './Favorites.css'
 
 const Favorites = ({ favoriteBooks }) => {
   const [books, setBooks] = useState([]);
-  const eventKeys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   useEffect(() => {
     getBooks({

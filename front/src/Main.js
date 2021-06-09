@@ -4,20 +4,19 @@ z tytułem, tablicą itd przekazywanymi przez parametry */
 import { createContext, useEffect, useState, useContext } from 'react';
 import BookCreator from './BookCreator';
 import Cards from './Cards/Cards';
-import ViewModeButton from './ViewModeButton';
+import ViewModeButton from './ViewModeButton/ViewModeButton';
 import PaginationButton from './PaginationButton/PaginationButton';
 import PageSizeButton from './PageSizeButton';
 import AuthorsButton from './AuthorsFilterButton';
 import { getBooks } from './helpers';
 import { BooksContext } from './App';
 import GenreButton from './GenreFilterButton';
-import Mail from './Mail';
 import SortButton from './SortButton';
 
 export const ViewModeContext = createContext();
 
 const Main = ({toggleFavoriteBook, favoriteBooks, isBookFavorite}) => {
-  const [viewMode, setViewMode] = useState('tiles');
+  const [viewMode, setViewMode] = useState('list');
   const [pageSize, setPageSize] = useState(8);
   const [page, setPage] = useState(1);
   const [filterValue, setFilterValue] = useState('');
@@ -105,9 +104,6 @@ const Main = ({toggleFavoriteBook, favoriteBooks, isBookFavorite}) => {
             setPage={setPage}
             pagesCountArr={pagesCountArr}
           />
-        </div>
-        <div>
-          <Mail />
         </div>
       </div>
     </ViewModeContext.Provider>
