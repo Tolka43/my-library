@@ -26,8 +26,6 @@ const authorsJson = fs.readFileSync(
 );
 const authors = JSON.parse(authorsJson);
 
-console.log(authors);
-
 const saveData = () => {
   const stringifiedData = JSON.stringify(books);
   fs.writeFile('./database/books.json', stringifiedData, () =>
@@ -47,9 +45,9 @@ booksRouter
     const sortValue = req.query.sort && req.query.sort[sortOption];
 
     const booksWithAuthors = books.books.map(book => {
-      const author = authors.authors.find(
-        author => book.authorId === author.id
-      );
+      const author = authors.authors.find(author => {
+        return Number(book.authorId) === author.id;
+      });
       return { ...book, author };
     });
 
@@ -97,12 +95,14 @@ booksRouter
   })
   .post('/', (req, res) => {
     const book = req.body;
+    console.log(book);
     books.books.push(book);
     saveData();
     res.sendStatus(200);
   })
   .delete('/:id', (req, res) => {
     books.books.splice(Number(req.params.id), 1);
+    console.log(req.params)
     res.status(200).send(books);
   })
   .get('/harry/:par/:asd', (req, res) => {
@@ -112,24 +112,21 @@ booksRouter
   .put('/:id', (req, res) => {
     const i = Number(req.params.id);
 
-    const author = req.body.author;
+    // const author = req.body.author;
     const genre = req.body.genre;
 
-    console.log(req.body);
-
-    books.books[i].author = author;
-    books.books[i].genre = genre;
+    // books.books[i].author = author;
+    books.books[i - 1].genre = genre;
 
     saveData();
 
     res.sendStatus(200);
   });
 
-router
-  .get('*', (req, res) => {
-    console.log(req.url)
-    res.sendFile(path.resolve(`./images/${req.url}`));
-  })
+router.get('*', (req, res) => {
+  console.log(req.url);
+  res.sendFile(path.resolve(`./images/${req.url}`));
+});
 
 // APP
 app

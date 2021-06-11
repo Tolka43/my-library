@@ -15,13 +15,11 @@ export const appConfig = {
     { sortValue: 'desc', sortOption: 'author', label: 'autorzy Z-A' },
   ],
   authors: [
-    { stringForUrl: '', title: 'wszyscy' },
     { stringForUrl: 'Sapkowski', title: 'Sapkowski Andrzej' },
     { stringForUrl: 'Rowling', title: 'Rowling J.K.' },
     { stringForUrl: 'King', title: 'King Stephen' },
   ],
   genres: [
-    { stringForUrl: '', title: 'wszystkie' },
     { stringForUrl: 'fantastyka', title: 'fantastyka' },
     { stringForUrl: 'horror', title: 'horror' },
     { stringForUrl: 'literatura+młodzieżowa', title: 'literatura młodzieżowa' },

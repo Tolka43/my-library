@@ -1,5 +1,5 @@
 import { DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
-import { appConfig } from './config'
+import { appConfig } from './config';
 
 const AuthorsButton = ({ setFilterValue, setFilterOption }) => {
   return (
@@ -9,6 +9,14 @@ const AuthorsButton = ({ setFilterValue, setFilterOption }) => {
       variant='secondary'
       title='autor'
     >
+      <Dropdown.Item
+        onClick={() => {
+          setFilterOption('author');
+          setFilterValue('');
+        }}
+      >
+        wszyscy
+      </Dropdown.Item>
       {appConfig.authors.map((authorData, i) => {
         return (
           <Dropdown.Item

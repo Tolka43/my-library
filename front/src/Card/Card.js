@@ -6,7 +6,7 @@ import SmallInput from '../Inputs/SmallInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { put } from '../helpers';
-import config from '../config';
+import config, { appConfig } from '../config';
 import Select from '../Select/Select';
 import { BooksContext } from '../App';
 import { ViewModeContext } from '../Main';
@@ -34,7 +34,11 @@ const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
               <h5 className='card-title'>{book.title}</h5>
               <div>
                 <FontAwesomeIcon
-                  icon={isBookFavorite(book.id) ? ['fas', 'heart'] : ['far', 'heart']}
+                  icon={
+                    isBookFavorite(book.id)
+                      ? ['fas', 'heart']
+                      : ['far', 'heart']
+                  }
                   className='heart-icon mx-2'
                   onClick={() => {
                     toggleFavoriteBook(book.id);
@@ -49,12 +53,19 @@ const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
             </div>
             {editMode ? (
               <>
-                <SmallInput
-                  title='autor:'
+                <Select
+                  title={'autor'}
                   onInputChange={setAuthor}
-                  inputValue={`${book.author.surname} ${book.author.name}`}
+                  defaultOption={`${book.author.surname} ${book.author.name}`}
+                  options={appConfig.authors}
                 />
-                <Select onInputChange={setGenre} defaultOption={book.genre} />
+
+                <Select
+                  title={'gatunek'}
+                  onInputChange={setGenre}
+                  defaultOption={book.genre}
+                  options={appConfig.genres}
+                />
               </>
             ) : (
               <>

@@ -16,7 +16,7 @@ import SortButton from './SortButton';
 export const ViewModeContext = createContext();
 
 const Main = ({toggleFavoriteBook, favoriteBooks, isBookFavorite}) => {
-  const [viewMode, setViewMode] = useState('list');
+  const [viewMode, setViewMode] = useState('tiles');
   const [pageSize, setPageSize] = useState(8);
   const [page, setPage] = useState(1);
   const [filterValue, setFilterValue] = useState('');

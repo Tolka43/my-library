@@ -30,7 +30,6 @@ function BookCreator() {
         <LargeInput title='tytuł' onInputChange={setTitle} />
         <LargeInput title='autor' onInputChange={setAuthor} />
         <LargeInput title='gatunek literacki' onInputChange={setGenre} />
-        <LargeInput title='data wydania' onInputChange={setDate} />
         <Modal.Footer>
           <Button
             title='zamknij'

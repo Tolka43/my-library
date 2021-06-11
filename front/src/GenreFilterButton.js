@@ -9,6 +9,14 @@ const GenreButton = ({ setFilterValue, setFilterOption }) => {
       variant='secondary'
       title='gatunek'
     >
+      <Dropdown.Item
+        onClick={() => {
+          setFilterOption('author');
+          setFilterValue('');
+        }}
+      >
+        wszystkie
+      </Dropdown.Item>
       {appConfig.genres.map((genreData, i) => (
         <Dropdown.Item
           key={i}
