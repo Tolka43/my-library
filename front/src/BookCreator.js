@@ -28,7 +28,7 @@ function BookCreator() {
           <Modal.Title>Dodaj książkę</Modal.Title>
         </Modal.Header>
         <LargeInput title='tytuł' onInputChange={setTitle} />
-        <AuthorsSelect setAuthorId={setAuthorId} size={'md'} />
+        <AuthorsSelect setAuthorId={setAuthorId} size={'md'} spanMargin={'m-2'} />
         <LargeInput title='gatunek literacki' onInputChange={setGenre} />
         <Modal.Footer>
           <Button

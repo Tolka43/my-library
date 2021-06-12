@@ -4,7 +4,7 @@ import './Select.css';
 const Select = ({ onInputChange, defaultOption, options, title, classes }) => {
   const optionsTitles = options.map(option => option.title);
   return (
-    <Form.Group controlId='exampleForm.SelectCustomSizeSm'>
+    <Form.Group controlId='exampleForm.SelectCustomSizeSm' className='input-group my-2'>
       <span>{`${title}:`}</span>
       <Form.Control
         as='select'

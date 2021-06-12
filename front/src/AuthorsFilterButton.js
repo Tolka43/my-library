@@ -1,7 +1,13 @@
+import { useContext } from 'react';
 import { DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
-import { appConfig } from './config';
+import { AuthorsDataContext } from './Main';
 
-const AuthorsButton = ({ setFilterValue, setFilterOption }) => {
+const AuthorsFilterButton = ({ setFilterValue, setFilterOption }) => {
+  const authorsData = useContext(AuthorsDataContext);
+  const authors = authorsData?.map(author => ({
+    stringForUrl: author.surname,
+    title: `${author.surname} ${author.name}`,
+  }));
   return (
     <DropdownButton
       as={ButtonGroup}
@@ -17,7 +23,7 @@ const AuthorsButton = ({ setFilterValue, setFilterOption }) => {
       >
         wszyscy
       </Dropdown.Item>
-      {appConfig.authors.map((authorData, i) => {
+      {authors?.map((authorData, i) => {
         return (
           <Dropdown.Item
             key={i}
@@ -34,4 +40,4 @@ const AuthorsButton = ({ setFilterValue, setFilterOption }) => {
     </DropdownButton>
   );
 };
-export default AuthorsButton;
+export default AuthorsFilterButton;

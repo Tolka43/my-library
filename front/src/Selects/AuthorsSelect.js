@@ -3,11 +3,11 @@ import { Form } from 'react-bootstrap';
 import { AuthorsDataContext } from '../Main';
 // import './Select.css';
 
-const AuthorsSelect = ({ defaultOption, setAuthor, setAuthorId, size }) => {
+const AuthorsSelect = ({ defaultOption, setAuthor, setAuthorId, size, spanMargin }) => {
   const authorsData = useContext(AuthorsDataContext);
   return (
-    <Form.Group controlId='exampleForm.SelectCustomSizeSm'>
-      <span>autor:</span>
+    <Form.Group controlId='exampleForm.SelectCustomSizeSm' className='input-group my-2'>
+      <span className={spanMargin}>autor:</span>
       <Form.Control
         as='select'
         size={size}

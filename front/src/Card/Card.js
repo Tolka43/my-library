@@ -35,7 +35,7 @@ const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
           <div className='card-body'>
             <div className='d-flex justify-content-between'>
               <h5 className='card-title'>{book.title}</h5>
-              <div>
+              <div className='card-icons'>
                 <FontAwesomeIcon
                   icon={
                     isBookFavorite(book.id)

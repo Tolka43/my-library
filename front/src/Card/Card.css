@@ -4,6 +4,10 @@
   cursor: pointer;
 }
 
+.card-icons {
+  display: flex;
+}
+
 .col-md-4 {
   height: 100%;
 }

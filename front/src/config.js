@@ -14,12 +14,6 @@ export const appConfig = {
     { sortValue: 'asc', sortOption: 'author', label: 'autorzy A-Z' },
     { sortValue: 'desc', sortOption: 'author', label: 'autorzy Z-A' },
   ],
-  authors: [
-    { stringForUrl: 'Sapkowski', title: 'Sapkowski Andrzej' },
-    { stringForUrl: 'Rowling', title: 'Rowling J.K.' },
-    { stringForUrl: 'King', title: 'King Stephen' },
-    { stringForUrl: 'Tolkien', title: 'Tolkien John' },
-  ],
   genres: [
     { stringForUrl: 'fantastyka', title: 'fantastyka' },
     { stringForUrl: 'horror', title: 'horror' },
