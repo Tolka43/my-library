@@ -1,7 +1,7 @@
 const Button = ({ title, onButtonClick, buttonStyle }) => (
   <button
-    type="button"
-    className={`btn ${buttonStyle} m-1`}
+    type='button'
+    className={`btn ${buttonStyle}`}
     onClick={() => onButtonClick()}
   >
     {title}

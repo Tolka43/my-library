@@ -1,0 +1,12 @@
+a.page-link {
+    color: #45b8ca;
+}
+
+span.page-link {
+    background-color: #17a2b8 !important;
+    border: 1px solid #17a2b8 !important;
+}
+
+.pagination {
+    flex-grow: unset !important;
+}

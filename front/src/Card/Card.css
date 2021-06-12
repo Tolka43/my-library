@@ -1,12 +1,23 @@
-.pen-icon {
+.pen-icon,
+.heart-icon {
   color: #b9c3cc;
   cursor: pointer;
 }
 
-.card {
-  max-width: 540px;
+.card-icons {
+  display: flex;
+}
+
+.col-md-4 {
+  height: 100%;
 }
 
 .row {
   height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .card {
+    height: 100%;
+  }
 }
