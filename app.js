@@ -87,6 +87,7 @@ booksRouter
 
     res.status(200).send({
       books: booksPerPage,
+      authors: authors.authors,
       meta: {
         filteredBooksCount: filteredBooks.length,
         booksCount: books.books.length,
@@ -114,14 +115,14 @@ booksRouter
   })
   .put('/:id', (req, res) => {
     const i = Number(req.params.id);
+    const genre = req.body.genre;
+    const authorId = req.body.authorId
+    const editedBook = books.books.find(book => book.id === i)
     console.log(req.params)
     console.log(req.body)
 
-    // const author = req.body.author;
-    const genre = req.body.genre;
-
-    // books.books[i].author = author;
-    books.books[i].genre = genre;
+    editedBook.genre = genre
+    authorId.length > 1 ? editedBook.authorId = authorId : null
 
     saveData();
 

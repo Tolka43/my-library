@@ -2,7 +2,6 @@ import './Card.css';
 import Button from '../Button';
 import { deleteBook } from '../helpers';
 import { useContext, useState } from 'react';
-import SmallInput from '../Inputs/SmallInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { put } from '../helpers';
@@ -10,11 +9,15 @@ import config, { appConfig } from '../config';
 import Select from '../Select/Select';
 import { BooksContext } from '../App';
 import { ViewModeContext } from '../Main';
+import AuthorsSelect from '../Select/AuthorsSelect';
 
 const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
   const [editMode, setEditMode] = useState(false);
   const [genre, setGenre] = useState(book.genre);
-  const [author, setAuthor] = useState(book.author);
+  const [author, setAuthor] = useState(
+    `${book.author.surname} ${book.author.name}`
+  );
+  const [authorId, setAuthorId] = useState();
   const { setBooks, books } = useContext(BooksContext);
   const viewMode = useContext(ViewModeContext);
 
@@ -53,11 +56,17 @@ const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
             </div>
             {editMode ? (
               <>
-                <Select
+                {/* <Select
                   title={'autor'}
                   onInputChange={setAuthor}
                   defaultOption={`${book.author.surname} ${book.author.name}`}
                   options={appConfig.authors}
+                /> */}
+
+                <AuthorsSelect
+                  setAuthorId={setAuthorId}
+                  setAuthor={setAuthor}
+                  defaultOption={author}
                 />
 
                 <Select
@@ -69,9 +78,7 @@ const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
               </>
             ) : (
               <>
-                <p className='card-text'>
-                  autor: {`${book.author.surname} ${book.author.name}`}
-                </p>
+                <p className='card-text'>autor: {author}</p>
                 <p className='card-text'>gatunek: {book.genre}</p>
               </>
             )}
@@ -90,7 +97,7 @@ const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
                 title='zapisz'
                 buttonStyle='btn-outline-info ml-2'
                 onButtonClick={() => {
-                  put({ author, genre }, id).then(() => {
+                  put({ authorId, genre }, id).then(() => {
                     setEditMode(false);
                     const editedBooks = books.map((book, i) =>
                       i === id ? { ...book, author, genre } : book

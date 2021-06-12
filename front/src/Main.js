@@ -14,8 +14,9 @@ import GenreButton from './GenreFilterButton';
 import SortButton from './SortButton';
 
 export const ViewModeContext = createContext();
+export const AuthorsDataContext = createContext();
 
-const Main = ({toggleFavoriteBook, favoriteBooks, isBookFavorite}) => {
+const Main = ({ toggleFavoriteBook, favoriteBooks, isBookFavorite }) => {
   const [viewMode, setViewMode] = useState('tiles');
   const [pageSize, setPageSize] = useState(8);
   const [page, setPage] = useState(1);
@@ -23,6 +24,7 @@ const Main = ({toggleFavoriteBook, favoriteBooks, isBookFavorite}) => {
   const [filterOption, setFilterOption] = useState('');
   const [sortValue, setSortValue] = useState('asc');
   const [sortOption, setSortOption] = useState('author');
+  const [authorsData, setAuthorsData] = useState();
 
   const [pagesCountArr, setPagesCountArr] = useState([0]);
 
@@ -39,6 +41,7 @@ const Main = ({toggleFavoriteBook, favoriteBooks, isBookFavorite}) => {
     })
       .then(data => {
         setBooks(data.books);
+        setAuthorsData(data.authors);
         return data;
       })
       .then(data => Math.ceil(data.meta.filteredBooksCount / pageSize))
@@ -94,10 +97,13 @@ const Main = ({toggleFavoriteBook, favoriteBooks, isBookFavorite}) => {
             </div>
           </div>
         </div>
-        <Cards 
-        toggleFavoriteBook={toggleFavoriteBook}
-        isBookFavorite={isBookFavorite}
-        favoriteBooks={favoriteBooks}/>
+        <AuthorsDataContext.Provider value={authorsData}>
+        <Cards
+          toggleFavoriteBook={toggleFavoriteBook}
+          isBookFavorite={isBookFavorite}
+          favoriteBooks={favoriteBooks}
+        />
+        </AuthorsDataContext.Provider>
         <div className='row justify-content-center'>
           <PaginationButton
             page={page}

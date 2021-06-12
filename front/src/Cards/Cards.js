@@ -7,7 +7,6 @@ import { BooksContext } from '../App';
 const Cards = ({toggleFavoriteBook, favoriteBooks, isBookFavorite}) => {
   const viewMode = useContext(ViewModeContext);
   const { books } = useContext(BooksContext);
-  
 
   return (
     <div className='row'>
