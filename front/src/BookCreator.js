@@ -6,9 +6,8 @@ import Button from './Button';
 
 function BookCreator() {
   const [title, setTitle] = useState();
-  const [author, setAuthor] = useState();
+  const [authorId, setAuthorId] = useState();
   const [genre, setGenre] = useState();
-  const [date, setDate] = useState();
 
   const [show, setShow] = useState(false);
 
@@ -28,7 +27,7 @@ function BookCreator() {
           <Modal.Title>Dodaj książkę</Modal.Title>
         </Modal.Header>
         <LargeInput title='tytuł' onInputChange={setTitle} />
-        <LargeInput title='autor' onInputChange={setAuthor} />
+        <LargeInput title='autor' onInputChange={setAuthorId} />
         <LargeInput title='gatunek literacki' onInputChange={setGenre} />
         <Modal.Footer>
           <Button
@@ -40,7 +39,7 @@ function BookCreator() {
             title='zapisz'
             buttonStyle='btn-info'
             onButtonClick={() =>
-              postBook({ title, author, genre, date }).then(handleClose)
+              postBook({ title, authorId, genre}).then(handleClose)
             }
           >
             dodaj

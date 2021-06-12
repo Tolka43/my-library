@@ -95,6 +95,9 @@ booksRouter
   })
   .post('/', (req, res) => {
     const book = req.body;
+    const authorId = req.body.authorId
+    book.id = books.books.length + 1
+    book.authorId = Number(authorId)
     console.log(book);
     books.books.push(book);
     saveData();
@@ -111,12 +114,14 @@ booksRouter
   })
   .put('/:id', (req, res) => {
     const i = Number(req.params.id);
+    console.log(req.params)
+    console.log(req.body)
 
     // const author = req.body.author;
     const genre = req.body.genre;
 
     // books.books[i].author = author;
-    books.books[i - 1].genre = genre;
+    books.books[i].genre = genre;
 
     saveData();
 
@@ -124,7 +129,6 @@ booksRouter
   });
 
 router.get('*', (req, res) => {
-  console.log(req.url);
   res.sendFile(path.resolve(`./images/${req.url}`));
 });
 

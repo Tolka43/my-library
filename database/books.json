@@ -1,1 +1,123 @@
-{"books":[{"id":1,"title":"Lśnienie","authorId":1,"img":"/lsnienie.jpg"},{"id":2,"title":"Carrie","authorId":1,"genre":"horror","img":"/carrie.jpg"},{"id":3,"title":"Miasteczko Salem","authorId":1,"img":"/miasteczko-salem.jpg"},{"id":4,"title":"Cmętarz zwieżąt","authorId":1,"genre":"horror","img":"/cmetarz-zwiezat.jpg"},{"id":5,"title":"Cztery pory roku","authorId":1,"genre":"literatura młodzieżowa","img":"/cztery-pory-roku.jpg"},{"id":6,"title":"To","authorId":1,"genre":"literatura młodzieżowa","img":"/to.jpg"},{"id":7,"title":"Harry Potter i Kamień Filozoficzny","authorId":2,"genre":"dramat","img":"/harry-kamien-filozoficzny.jpg"},{"id":8,"title":"Harry Potter i Komnata Tajemnic","authorId":2,"genre":"literatura młodzieżowa","img":"/harry-komnata-tajemnic.jpg"},{"id":9,"title":"Harry Potter i więzień Azkabanu","authorId":2,"genre":"literatura młodzieżowa","img":"/harry-wiezien-azkabanu.jpg"},{"id":10,"title":"Harry Potter i Czara Ognia","authorId":2,"genre":"literatura młodzieżowa","img":"/harry-czara-ognia.jpg"},{"id":11,"title":"Harry Potter i Zakon Feniksa","authorId":2,"genre":"literatura młodzieżowa","img":"/harry-zakon-feniksa.jpg"},{"id":12,"title":"Hobbit","authorId":3,"genre":"fantastyka","img":"/hobbit.jpg"},{"id":13,"title":"Kamienie na szaniec","authorId":4,"genre":"horror","img":"/kamienie-na-szaniec.jpg"},{"id":14,"title":"Chłopcy z placu broni","authorId":5,"genre":"dramat","img":"/chlopcy-z-placu-broni.jpg"},{"id":15,"title":"Ostatnie życzenie","authorId":6,"genre":"horror","img":"/wiedzmin-ostatnie-zyczenie.jpg"},{"id":16,"title":"Miecz przeznaczenia","authorId":6,"genre":"fantastyka","img":"/wiedzmin-miecz-przeznaczenia.jpg"},{"id":17,"title":"Krew elfów","authorId":6,"genre":"dramat","img":"/wiedzmin-krew-elfow.jpg"},{"id":18,"title":"Czas pogardy","authorId":6,"genre":"fantastyka","img":"/wiedzmin-czas-pogardy.jpg"}]}
+{
+  "books": [
+    { "id": 1, "title": "Lśnienie", "authorId": 1, "img": "/lsnienie.jpg" },
+    {
+      "id": 2,
+      "title": "Carrie",
+      "authorId": 1,
+      "genre": "horror",
+      "img": "/carrie.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Miasteczko Salem",
+      "authorId": 1,
+      "img": "/miasteczko-salem.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Cmętarz zwieżąt",
+      "authorId": 1,
+      "genre": "horror",
+      "img": "/cmetarz-zwiezat.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Cztery pory roku",
+      "authorId": 1,
+      "genre": "literatura młodzieżowa",
+      "img": "/cztery-pory-roku.jpg"
+    },
+    {
+      "id": 6,
+      "title": "To",
+      "authorId": 1,
+      "genre": "literatura młodzieżowa",
+      "img": "/to.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Harry Potter i Kamień Filozoficzny",
+      "authorId": 2,
+      "genre": "dramat",
+      "img": "/harry-kamien-filozoficzny.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Harry Potter i Komnata Tajemnic",
+      "authorId": 2,
+      "genre": "literatura młodzieżowa",
+      "img": "/harry-komnata-tajemnic.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Harry Potter i więzień Azkabanu",
+      "authorId": 2,
+      "genre": "literatura młodzieżowa",
+      "img": "/harry-wiezien-azkabanu.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Harry Potter i Czara Ognia",
+      "authorId": 2,
+      "genre": "literatura młodzieżowa",
+      "img": "/harry-czara-ognia.jpg"
+    },
+    {
+      "id": 11,
+      "title": "Harry Potter i Zakon Feniksa",
+      "authorId": 2,
+      "genre": "literatura młodzieżowa",
+      "img": "/harry-zakon-feniksa.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Hobbit",
+      "authorId": 3,
+      "genre": "fantastyka",
+      "img": "/hobbit.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Kamienie na szaniec",
+      "authorId": 4,
+      "genre": "horror",
+      "img": "/kamienie-na-szaniec.jpg"
+    },
+    {
+      "id": 14,
+      "title": "Chłopcy z placu broni",
+      "authorId": 5,
+      "genre": "dramat",
+      "img": "/chlopcy-z-placu-broni.jpg"
+    },
+    {
+      "id": 15,
+      "title": "Ostatnie życzenie",
+      "authorId": 6,
+      "genre": "horror",
+      "img": "/wiedzmin-ostatnie-zyczenie.jpg"
+    },
+    {
+      "id": 16,
+      "title": "Miecz przeznaczenia",
+      "authorId": 6,
+      "genre": "fantastyka",
+      "img": "/wiedzmin-miecz-przeznaczenia.jpg"
+    },
+    {
+      "id": 17,
+      "title": "Krew elfów",
+      "authorId": 6,
+      "genre": "dramat",
+      "img": "/wiedzmin-krew-elfow.jpg"
+    },
+    {
+      "id": 18,
+      "title": "Czas pogardy",
+      "authorId": 6,
+      "genre": "fantastyka",
+      "img": "/wiedzmin-czas-pogardy.jpg"
+    }
+  ]
+}

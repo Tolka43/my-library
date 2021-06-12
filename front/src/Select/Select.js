@@ -15,7 +15,7 @@ const Select = ({ onInputChange, defaultOption, options, title }) => {
       >
         <option>{defaultOption}</option>
         {optionsTitles.map(optionTitle => (
-          <option>{optionTitle}</option>
+          <option key={optionTitle}>{optionTitle}</option>
         ))}
       </Form.Control>
     </Form.Group>
