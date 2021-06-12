@@ -6,10 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { put } from '../helpers';
 import config, { appConfig } from '../config';
-import Select from '../Select/Select';
+import Select from '../Selects/Select';
 import { BooksContext } from '../App';
 import { ViewModeContext } from '../Main';
-import AuthorsSelect from '../Select/AuthorsSelect';
+import AuthorsSelect from '../Selects/AuthorsSelect';
 
 const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
   const [editMode, setEditMode] = useState(false);
@@ -67,6 +67,7 @@ const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
                   setAuthorId={setAuthorId}
                   setAuthor={setAuthor}
                   defaultOption={author}
+                  size={'sm'}
                 />
 
                 <Select
@@ -74,6 +75,7 @@ const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
                   onInputChange={setGenre}
                   defaultOption={book.genre}
                   options={appConfig.genres}
+                  // classes={'narrower-select'}
                 />
               </>
             ) : (
@@ -87,7 +89,7 @@ const Card = ({ book, id, toggleFavoriteBook, isBookFavorite }) => {
               title='usuń'
               onButtonClick={() => {
                 deleteBook(id).then(() => {
-                  const reduceBooks = books.filter((book, i) => i !== id);
+                  const reduceBooks = books.filter((book, i) => book.id !== id);
                   setBooks(reduceBooks);
                 });
               }}

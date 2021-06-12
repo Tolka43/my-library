@@ -59,6 +59,7 @@ const Main = ({ toggleFavoriteBook, favoriteBooks, isBookFavorite }) => {
 
   return (
     <ViewModeContext.Provider value={viewMode}>
+    <AuthorsDataContext.Provider value={authorsData}>
       <div className='siteBody container-lg'>
         <div className='row'>
           <div className='col-lg-4 d-flex justify-content-start py-3'>
@@ -97,13 +98,12 @@ const Main = ({ toggleFavoriteBook, favoriteBooks, isBookFavorite }) => {
             </div>
           </div>
         </div>
-        <AuthorsDataContext.Provider value={authorsData}>
         <Cards
           toggleFavoriteBook={toggleFavoriteBook}
           isBookFavorite={isBookFavorite}
           favoriteBooks={favoriteBooks}
         />
-        </AuthorsDataContext.Provider>
+        
         <div className='row justify-content-center'>
           <PaginationButton
             page={page}
@@ -112,6 +112,7 @@ const Main = ({ toggleFavoriteBook, favoriteBooks, isBookFavorite }) => {
           />
         </div>
       </div>
+    </AuthorsDataContext.Provider>
     </ViewModeContext.Provider>
   );
 };

@@ -18,7 +18,7 @@ const booksJson = fs.readFileSync(
   path.resolve('./database/books.json'),
   options
 );
-const books = JSON.parse(booksJson);
+let books = JSON.parse(booksJson);
 
 const authorsJson = fs.readFileSync(
   path.resolve('./database/authors.json'),
@@ -43,7 +43,7 @@ booksRouter
     const num = page * pageSize - pageSize;
     const sortOption = req.query.sort && Object.keys(req.query.sort)[0];
     const sortValue = req.query.sort && req.query.sort[sortOption];
-
+console.log(books)
     const booksWithAuthors = books.books.map(book => {
       const author = authors.authors.find(author => {
         return Number(book.authorId) === author.id;
@@ -67,8 +67,6 @@ booksRouter
           }
         })
       : booksWithAuthors;
-
-    console.log(filterOption, filterValue);
 
     if (filteredBooks.length > 1 && sortOption) {
       filteredBooks.sort((a, b) => {
@@ -96,33 +94,35 @@ booksRouter
   })
   .post('/', (req, res) => {
     const book = req.body;
-    const authorId = req.body.authorId
-    book.id = books.books.length + 1
-    book.authorId = Number(authorId)
-    console.log(book);
+    const authorId = req.body.authorId;
+    book.id = books.books.length + 1;
+    book.authorId = Number(authorId);
     books.books.push(book);
     saveData();
     res.sendStatus(200);
   })
   .delete('/:id', (req, res) => {
-    books.books.splice(Number(req.params.id), 1);
-    console.log(req.params)
+    // books.books.splice(Number(req.params.id), 1);
+    const filteredBooks = books.books.filter(
+      book => book.id !== Number(req.params.id)
+    );
+   books.books = filteredBooks;
+    saveData();
     res.status(200).send(books);
   })
   .get('/harry/:par/:asd', (req, res) => {
-    console.log(req.params);
     res.status(200).send(books);
   })
   .put('/:id', (req, res) => {
     const i = Number(req.params.id);
     const genre = req.body.genre;
-    const authorId = req.body.authorId
-    const editedBook = books.books.find(book => book.id === i)
-    console.log(req.params)
-    console.log(req.body)
+    const authorId = req.body.authorId;
+    const editedBook = books.books.find(book => book.id === i);
 
-    editedBook.genre = genre
-    authorId.length > 1 ? editedBook.authorId = authorId : null
+    editedBook.genre = genre;
+    if (authorId) {
+      editedBook.authorId = authorId;
+    }
 
     saveData();
 

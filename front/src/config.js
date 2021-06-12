@@ -18,6 +18,7 @@ export const appConfig = {
     { stringForUrl: 'Sapkowski', title: 'Sapkowski Andrzej' },
     { stringForUrl: 'Rowling', title: 'Rowling J.K.' },
     { stringForUrl: 'King', title: 'King Stephen' },
+    { stringForUrl: 'Tolkien', title: 'Tolkien John' },
   ],
   genres: [
     { stringForUrl: 'fantastyka', title: 'fantastyka' },

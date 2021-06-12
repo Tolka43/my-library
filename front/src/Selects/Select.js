@@ -1,7 +1,7 @@
 import { Form } from 'react-bootstrap';
 import './Select.css';
 
-const Select = ({ onInputChange, defaultOption, options, title }) => {
+const Select = ({ onInputChange, defaultOption, options, title, classes }) => {
   const optionsTitles = options.map(option => option.title);
   return (
     <Form.Group controlId='exampleForm.SelectCustomSizeSm'>
@@ -9,7 +9,7 @@ const Select = ({ onInputChange, defaultOption, options, title }) => {
       <Form.Control
         as='select'
         size='sm'
-        className='select ml-2'
+        className={`${classes} select ml-2`}
         custom
         onChange={event => onInputChange(event.target.value)}
       >

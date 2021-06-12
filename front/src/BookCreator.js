@@ -3,6 +3,7 @@ import { useState } from 'react';
 import LargeInput from './Inputs/LargeInput';
 import { postBook } from './helpers';
 import Button from './Button';
+import AuthorsSelect from './Selects/AuthorsSelect';
 
 function BookCreator() {
   const [title, setTitle] = useState();
@@ -27,7 +28,7 @@ function BookCreator() {
           <Modal.Title>Dodaj książkę</Modal.Title>
         </Modal.Header>
         <LargeInput title='tytuł' onInputChange={setTitle} />
-        <LargeInput title='autor' onInputChange={setAuthorId} />
+        <AuthorsSelect setAuthorId={setAuthorId} size={'md'} />
         <LargeInput title='gatunek literacki' onInputChange={setGenre} />
         <Modal.Footer>
           <Button
@@ -39,7 +40,7 @@ function BookCreator() {
             title='zapisz'
             buttonStyle='btn-info'
             onButtonClick={() =>
-              postBook({ title, authorId, genre}).then(handleClose)
+              postBook({ title, authorId, genre }).then(handleClose)
             }
           >
             dodaj
