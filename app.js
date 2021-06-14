@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 
 const app = express();
 const booksRouter = express.Router();
@@ -10,17 +9,6 @@ const router = express.Router();
 
 // CONFIG
 const port = process.env.PORT || 4444;
-
-const appPath =
-  process.env.APP_PATH ||
-  path.join(fileURLToPath(import.meta.url), '../front/');
-
-console.log(path.join(fileURLToPath(import.meta.url), '../front/'));
-
-const pathToBuild = path.resolve(appPath, './build');
-const opt = { extensions: ['html'] };
-
-console.log(pathToBuild);
 
 // DATABASE
 
@@ -55,7 +43,7 @@ booksRouter
     const num = page * pageSize - pageSize;
     const sortOption = req.query.sort && Object.keys(req.query.sort)[0];
     const sortValue = req.query.sort && req.query.sort[sortOption];
-    console.log(books);
+console.log(books)
     const booksWithAuthors = books.books.map(book => {
       const author = authors.authors.find(author => {
         return Number(book.authorId) === author.id;
@@ -114,10 +102,11 @@ booksRouter
     res.sendStatus(200);
   })
   .delete('/:id', (req, res) => {
+    // books.books.splice(Number(req.params.id), 1);
     const filteredBooks = books.books.filter(
       book => book.id !== Number(req.params.id)
     );
-    books.books = filteredBooks;
+   books.books = filteredBooks;
     saveData();
     res.status(200).send(books);
   })
@@ -145,13 +134,11 @@ router.get('*', (req, res) => {
 });
 
 // APP
-
-  app
+app
   .use(express.json())
   .use(express.text())
   .use(cors())
   .use(express.static('./front/build'))
-  .use('/api', router)
   .use('/api/books', booksRouter)
+  .use('/api', router)
   .listen(port, () => console.log(`App listening on http://localhost:${port}`));
-
