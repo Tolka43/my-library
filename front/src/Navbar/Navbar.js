@@ -10,12 +10,12 @@ const AppNavbar = () => (
     <Navbar.Toggle aria-controls='responsive-navbar-nav' />
     <Navbar.Collapse id='responsive-navbar-nav'>
       <Nav className='mr-auto'>
-        <Link className='link m-2' to='/favorites'>
+        {/* <Link className='link m-2' to='/favorites'>
           Ulubione
         </Link>
         <Link className='link m-2' to='/settings'>
           Ustawienia
-        </Link>
+        </Link> */}
       </Nav>
       <Nav>
         <Link className='link ml-2' to='/login'>

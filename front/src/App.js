@@ -22,13 +22,13 @@ const App = () => {
         <AppNavbar />
 
         <Switch>
-          <Route path='/favorites'>
+          {/* <Route path='/favorites'>
             <Favorites favoriteBooks={favoriteBooks} />
           </Route>
 
           <Route path='/settings'>
             <div className='siteBody'></div>
-          </Route>
+          </Route> */}
 
           <Route path='/'>
             <Main
