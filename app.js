@@ -148,7 +148,8 @@ app
   .use(express.json())
   .use(express.text())
   .use(cors())
-  .use(express.static('./front/build'))
+  .use('/', express.static(pathToBuild, opt))
   .use('/api', router)
   .use('/api/books', booksRouter)
+  .use('*', express.static(pathToBuild, opt))
   .listen(port, () => console.log(`App listening on http://localhost:${port}`));
