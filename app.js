@@ -12,14 +12,15 @@ const router = express.Router();
 const port = process.env.PORT || 4444;
 
 const appPath =
-  process.env.APP_PATH || path.join(fileURLToPath(import.meta.url), '../front/');
+  process.env.APP_PATH ||
+  path.join(fileURLToPath(import.meta.url), '../front/');
 
 console.log(path.join(fileURLToPath(import.meta.url), '../front/'));
 
 const pathToBuild = path.resolve(appPath, './build');
 const opt = { extensions: ['html'] };
 
-console.log(pathToBuild)
+console.log(pathToBuild);
 
 // DATABASE
 
@@ -144,7 +145,8 @@ router.get('*', (req, res) => {
 });
 
 // APP
-app
+
+  app
   .use(express.json())
   .use(express.text())
   .use(cors())
@@ -152,3 +154,4 @@ app
   .use('/api', router)
   .use('/api/books', booksRouter)
   .listen(port, () => console.log(`App listening on http://localhost:${port}`));
+
