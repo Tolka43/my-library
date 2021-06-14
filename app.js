@@ -14,10 +14,12 @@ const port = process.env.PORT || 4444;
 const appPath =
   process.env.APP_PATH || path.join(fileURLToPath(import.meta.url), '../');
 
-console.log(path.join(fileURLToPath(import.meta.url), '..'));
+console.log(path.join(fileURLToPath(import.meta.url), '../'));
 
 const pathToBuild = path.resolve(appPath, './build');
 const opt = { extensions: ['html'] };
+
+console.log(pathToBuild)
 
 // DATABASE
 
@@ -149,4 +151,5 @@ app
   .use('/', express.static(pathToBuild, opt))
   .use('/api/books', booksRouter)
   .use('/api', router)
+  .use('*', express.static(pathToBuild, opt))
   .listen(port, () => console.log(`App listening on http://localhost:${port}`));
