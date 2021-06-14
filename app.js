@@ -12,9 +12,9 @@ const router = express.Router();
 const port = process.env.PORT || 4444;
 
 const appPath =
-  process.env.APP_PATH || path.join(fileURLToPath(import.meta.url), '../');
+  process.env.APP_PATH || path.join(fileURLToPath(import.meta.url), '../front/');
 
-console.log(path.join(fileURLToPath(import.meta.url), '../'));
+console.log(path.join(fileURLToPath(import.meta.url), '../front/'));
 
 const pathToBuild = path.resolve(appPath, './build');
 const opt = { extensions: ['html'] };
@@ -149,7 +149,7 @@ app
   .use(express.text())
   .use(cors())
   .use('/', express.static(pathToBuild, opt))
-  .use('/api/books', booksRouter)
   .use('/api', router)
+  .use('/api/books', booksRouter)
   .use('*', express.static(pathToBuild, opt))
   .listen(port, () => console.log(`App listening on http://localhost:${port}`));
