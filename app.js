@@ -12,7 +12,7 @@ const router = express.Router();
 const port = process.env.PORT || 4444;
 
 const appPath =
-  process.env.APP_PATH || path.join(fileURLToPath(import.meta.url), '..');
+  process.env.APP_PATH || path.join(fileURLToPath(import.meta.url), '../');
 
 console.log(path.join(fileURLToPath(import.meta.url), '..'));
 
