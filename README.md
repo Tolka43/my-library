@@ -1,6 +1,9 @@
 # Library
-Simple app that will allow you to store all your favorite or read books in one place. 
+App that will allow you to store all your favorite or read books in one place and manage them. 
 
+check it out here: https://my-library91057.herokuapp.com/
+
+![Alt text](./app-view.png?raw=true "Title")
 ## General info
 I created this app to improve my React skills and also to summarize everything I have learned so far.
 
