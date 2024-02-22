@@ -1,7 +1,6 @@
 # Library
 App that will allow you to store all your favorite or read books in one place and manage them. 
 
-check it out here: https://my-library91057.herokuapp.com/
 
 ![Alt text](./app-view.png?raw=true "Title")
 ## General info
